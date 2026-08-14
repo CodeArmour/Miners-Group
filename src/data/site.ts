@@ -182,6 +182,33 @@ export const labsAreas = [
   }
 ];
 
+export const featuredProjects = [
+  {
+    slug: "andalucia",
+    name: "Andalucia",
+    index: "01",
+    description:
+      "A website interface for an engineering consulting brand, shown through a wide homepage screenshot with strong editorial hierarchy and service-oriented navigation.",
+    category: "Website interface",
+    image: "/projects/andalucia.png",
+    imageAlt: "Andalucia website homepage screenshot showing engineering consulting hero content and navigation.",
+    status: "Showcase",
+    technologies: []
+  },
+  {
+    slug: "moon-glow",
+    name: "Moon Glow",
+    index: "02",
+    description:
+      "A travel-focused web interface built around destination discovery, large visual cards, and a clear journey-planning entry point.",
+    category: "Website interface",
+    image: "/projects/moonglow.png",
+    imageAlt: "Moon Glow travel website screenshot showing destination cards and journey planning navigation.",
+    status: "Showcase",
+    technologies: []
+  }
+];
+
 export const opportunities = [
   {
     type: "Internships",
@@ -285,6 +312,17 @@ export const deliveryProcess = [
 ];
 
 export const labsProcess = ["Idea", "Plan", "Build", "Review", "QA", "Document", "Ship", "Reflect"];
+
+export const labsWorkflow = [
+  { title: "Idea", text: "Define what is worth solving." },
+  { title: "Plan", text: "Turn the idea into scope, requirements, and tasks." },
+  { title: "Build", text: "Implement in focused development rounds." },
+  { title: "Review", text: "Review code, architecture, and decisions." },
+  { title: "QA", text: "Test behavior, usability, edge cases, and regressions." },
+  { title: "Document", text: "Capture decisions, usage, and corrections." },
+  { title: "Ship", text: "Deliver a working result." },
+  { title: "Reflect", text: "Review what worked, what failed, and what should improve next." }
+];
 
 export const communityPrinciples = [
   { title: "Ask", text: "Make space for questions and honest technical discussion." },
