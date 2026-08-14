@@ -152,6 +152,81 @@ export const programs = [
   "Testing & QA"
 ];
 
+export const programPaths = [
+  {
+    index: "01",
+    title: "Training",
+    headline: "Build strong technical foundations.",
+    status: "In Development",
+    text: "Practical learning, workshops, structured learning areas, and guided technical practice.",
+    cta: "Join for Program Updates",
+    href: "/join",
+    areasLabel: "Learning Areas",
+    areas: programs
+  },
+  {
+    index: "02",
+    title: "Internships",
+    headline: "Experience how real software teams work.",
+    status: "Applications Not Open Yet",
+    text: "Future structured practical experience around requirements, planning, Git, implementation, pull requests, code review, testing, QA, documentation, and delivery.",
+    cta: "Join for Internship Updates",
+    href: "/join"
+  },
+  {
+    index: "03",
+    title: "Mentorship",
+    headline: "Get guidance when the next step is unclear.",
+    status: "Available",
+    text: "Guidance around learning roadmaps, specialization, portfolios, projects, certifications, internship preparation, and career direction.",
+    cta: "Request Mentorship",
+    href: "/join#mentor"
+  }
+];
+
+export const learningAreaGroups = [
+  { title: "Build", items: ["Frontend", "Backend", "Full Stack", "Mobile"] },
+  { title: "Operate", items: ["Cloud", "DevOps"] },
+  { title: "Intelligence & Security", items: ["AI", "Cybersecurity"] },
+  { title: "Engineering Practice", items: ["Git & GitHub", "Testing & QA", "Software Engineering Practices"] }
+];
+
+export const minersLearningProcess = [
+  { title: "Understand", text: "Learn the concepts and why they matter." },
+  { title: "Practice", text: "Apply them in focused exercises." },
+  { title: "Build", text: "Use them in projects and collaborative work." },
+  { title: "Review", text: "Receive feedback and improve quality." },
+  { title: "Reflect", text: "Understand what worked and what to improve next." }
+];
+
+export const internshipExperienceModel = [
+  "Requirements",
+  "Planning",
+  "Git",
+  "Build",
+  "PR",
+  "Review",
+  "QA",
+  "Documentation",
+  "Delivery"
+];
+
+export const mentorshipQuestions = [
+  "What should I learn next?",
+  "Which specialization fits me?",
+  "Is my portfolio strong enough?",
+  "How can I improve this project?",
+  "Which certifications are worth pursuing?",
+  "How should I prepare for an internship?"
+];
+
+export const programAudiences = [
+  { title: "Students", text: "Trying to build direction and practical experience." },
+  { title: "Self-Taught Developers", text: "Wanting structure, feedback, and stronger projects." },
+  { title: "Early-Career Developers", text: "Looking to strengthen engineering habits and collaboration skills." },
+  { title: "Contributors", text: "Wanting to learn by building with others." }
+];
+
 export const labsAreas = [
   {
     name: "Internal Labs",
