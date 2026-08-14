@@ -27,27 +27,30 @@ const studentQuestions = [
   "How do I know if I am job-ready?"
 ];
 
+const heroJourneyStages = ["Learn", "Practice", "Build", "Mentored", "Experience", "Work"];
+
 export default function Home() {
   return (
     <main className="overflow-hidden pt-28">
-      <section className="container-miners grid min-h-[calc(100vh-7rem)] items-center gap-12 py-12 lg:grid-cols-[0.95fr_1.05fr]">
+      <section className="container-miners grid min-h-[760px] items-center gap-10 pb-20 pt-12 lg:grid-cols-[0.92fr_1.08fr] lg:pb-24 xl:min-h-[820px]">
         <Reveal>
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-indigoElectric">Miners Group</p>
-          <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-7xl">
+          <h1 className="max-w-[46rem] text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-[4.65rem] lg:leading-[0.96]">
             Where developers learn, build, and grow through real experience.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">{siteConfig.description}</p>
+          <p className="mt-6 max-w-[40rem] text-lg leading-8 text-muted">{siteConfig.description}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/join">Join Miners Group</ButtonLink>
+            <ButtonLink href="/join" className="bg-indigoElectric hover:bg-ink">Join Miners Group</ButtonLink>
             <ButtonLink href="#ecosystem" variant="secondary">Explore the Ecosystem</ButtonLink>
           </div>
-          <div className="mt-10 flex flex-wrap gap-2 text-sm font-semibold text-ink">
-            {["Learn", "Practice", "Build", "Get Mentored", "Gain Experience", "Work"].map((stage) => (
-              <span key={stage} className="rounded-full border border-ink/10 bg-white px-3 py-2 shadow-sm">
+          <ol className="mt-10 flex snap-x gap-2 overflow-x-auto pb-2 text-sm font-semibold text-ink sm:flex-wrap sm:overflow-visible sm:pb-0" aria-label="Miners journey overview">
+            {heroJourneyStages.map((stage, index) => (
+              <li key={stage} className="flex shrink-0 snap-start items-center gap-2 rounded-full border border-ink/10 bg-white px-3 py-2 shadow-sm">
+                <span className="text-xs font-bold text-indigoElectric">{String(index + 1).padStart(2, "0")}</span>
                 {stage}
-              </span>
+              </li>
             ))}
-          </div>
+          </ol>
         </Reveal>
         <Reveal delay={0.12}>
           <HeroEcosystemMap />

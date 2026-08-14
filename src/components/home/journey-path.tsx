@@ -13,7 +13,14 @@ export function JourneyPath() {
 
   return (
     <div ref={ref} className="relative mt-14">
-      <div className="hidden lg:block">
+      <ol className="sr-only">
+        {journeySteps.map((step) => (
+          <li key={step.title}>
+            {step.title}: {step.text}
+          </li>
+        ))}
+      </ol>
+      <div className="hidden lg:block" aria-hidden="true">
         <div className="mb-8 flex items-center justify-between text-xs font-bold uppercase tracking-[0.18em] text-muted">
           <span>Knowledge</span>
           <span className="text-indigoElectric">Experience</span>
@@ -42,7 +49,7 @@ export function JourneyPath() {
           })}
         </div>
       </div>
-      <div className="relative lg:hidden">
+      <div className="relative lg:hidden" aria-hidden="true">
         <div className="absolute bottom-0 left-5 top-0 w-px bg-ink/12" />
         <motion.div
           className="absolute left-5 top-0 w-[3px] origin-top rounded-full bg-indigoElectric"
