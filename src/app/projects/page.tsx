@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionIntro } from "@/components/ui/section";
 import { featuredProjects, labsAreas, labsWorkflow } from "@/data/site";
@@ -173,6 +173,17 @@ function ProjectSummary({ project, dark = false }: { project: (typeof featuredPr
       >
         See the Labs workflow <ArrowRight className="h-4 w-4" aria-hidden="true" />
       </Link>
+      {project.href ? (
+        <a
+          href={project.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`focus-ring ml-0 mt-4 inline-flex items-center gap-2 rounded-full text-sm font-semibold sm:ml-4 ${dark ? "text-white/78 hover:text-limeSignal" : "text-ink/70 hover:text-indigoElectric"}`}
+          aria-label={`View ${project.name} live project`}
+        >
+          View Live Project <ExternalLink className="h-4 w-4" aria-hidden="true" />
+        </a>
+      ) : null}
     </div>
   );
 }

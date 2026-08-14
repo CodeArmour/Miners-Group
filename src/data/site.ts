@@ -192,6 +192,7 @@ export const featuredProjects = [
     category: "Website interface",
     image: "/projects/andalucia.png",
     imageAlt: "Andalucia website homepage screenshot showing engineering consulting hero content and navigation.",
+    href: "https://www.andaluciagroup.eu/",
     status: "Showcase",
     technologies: []
   },
@@ -204,6 +205,7 @@ export const featuredProjects = [
     category: "Website interface",
     image: "/projects/moonglow.png",
     imageAlt: "Moon Glow travel website screenshot showing destination cards and journey planning navigation.",
+    href: "https://moon-two-flame.vercel.app/",
     status: "Showcase",
     technologies: []
   }
