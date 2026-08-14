@@ -219,7 +219,7 @@ function TrainingPanel({ path }: { path: (typeof programPaths)[number] }) {
   const Icon = pathIcons.Training;
 
   return (
-    <article className="rounded-[2rem] border border-indigoElectric/15 bg-white p-7 shadow-soft lg:col-span-7 lg:p-9">
+    <article className="flex h-full flex-col rounded-[2rem] border border-indigoElectric/15 bg-white p-7 shadow-soft lg:col-span-7 lg:p-9">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <StatusBadge>{path.status}</StatusBadge>
         <Icon className="h-8 w-8 text-indigoElectric" aria-hidden="true" />
@@ -235,9 +235,11 @@ function TrainingPanel({ path }: { path: (typeof programPaths)[number] }) {
           </span>
         ))}
       </div>
-      <ButtonLink href={path.href} variant="secondary" className="mt-8">
-        {path.cta}
-      </ButtonLink>
+      <div className="mt-auto pt-8">
+        <ButtonLink href={path.href} variant="secondary" className="w-fit">
+          {path.cta}
+        </ButtonLink>
+      </div>
     </article>
   );
 }

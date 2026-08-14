@@ -326,32 +326,55 @@ export const communityActivities = [
 export const values = [
   {
     title: "Learn Continuously",
-    text: "Technology changes quickly, so Miners treats learning as an ongoing practice."
+    text: "Technology changes. Curiosity and the ability to keep learning matter more than memorizing one tool."
   },
   {
     title: "Build Practically",
-    text: "Knowledge becomes stronger when it is applied to real decisions, constraints, and working software."
+    text: "Knowledge becomes stronger when it is applied to real problems, constraints, and working software."
   },
   {
     title: "Grow Together",
-    text: "People progress faster when they can ask, review, explain, and improve with others."
+    text: "Progress is faster when people learn, review, explain, and build with others."
   },
   {
     title: "Share Knowledge",
-    text: "Experience becomes more valuable when it helps someone else move forward."
+    text: "What one person learns can create value for the whole community."
   },
   {
     title: "Take Ownership",
-    text: "Professional growth comes from responsibility, communication, and care for the work."
+    text: "Good engineering means caring about the result, not only completing a task."
   },
   {
     title: "Create Opportunities",
-    text: "Talent needs pathways to practice, demonstrate ability, and meet meaningful next steps."
+    text: "The ecosystem should help people move toward projects, internships, mentorship, and professional growth."
   },
   {
     title: "Quality Matters",
-    text: "Learning environments should still encourage clear standards and thoughtful engineering."
+    text: "Planning, review, testing, documentation, and thoughtful implementation are part of the work."
   }
+];
+
+export const trustProcess = ["Plan", "Build", "Review", "Test", "Document", "Improve"];
+
+export const minersDifference = [
+  { title: "Learning", text: "Practical technical development." },
+  { title: "Building", text: "Real software and collaborative projects." },
+  { title: "Mentorship", text: "Guidance from people with more experience." },
+  { title: "Opportunity", text: "Internships, contribution, career preparation, and future talent connections." },
+  { title: "Delivery", text: "Software work for companies and organizations." }
+];
+
+export const communityBehaviors = ["Ask", "Share", "Review", "Build", "Mentor", "Contribute"];
+
+export const futureLoop = ["Student", "Developer", "Contributor", "Mentor", "Opportunity Creator"];
+
+export const futureDirections = [
+  "Students find clearer paths.",
+  "Developers strengthen real engineering experience.",
+  "Mentors help others progress.",
+  "Teams build meaningful software.",
+  "Companies collaborate with emerging talent.",
+  "Members create opportunities for the people who come after them."
 ];
 
 export const faqs = [
