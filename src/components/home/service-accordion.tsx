@@ -11,7 +11,7 @@ export function ServiceAccordion() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <div className="mt-12 overflow-hidden rounded-[2rem] border border-ink/10 bg-white shadow-soft">
+    <div className="mt-12 overflow-hidden rounded-[2rem] border border-ink/10 bg-white shadow-sm">
       {serviceGroups.map((group, index) => (
         <div key={group.title} className={cx("border-b border-ink/10 last:border-b-0", active === index && "bg-lilacSoft/28")}>
           <button

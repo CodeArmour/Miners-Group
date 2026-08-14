@@ -43,10 +43,10 @@ export default function Home() {
             <ButtonLink href="/join" className="bg-indigoElectric hover:bg-ink">Join Miners Group</ButtonLink>
             <ButtonLink href="#ecosystem" variant="secondary">Explore the Ecosystem</ButtonLink>
           </div>
-          <ol className="mt-10 flex snap-x gap-2 overflow-x-auto pb-2 text-sm font-semibold text-ink sm:flex-wrap sm:overflow-visible sm:pb-0" aria-label="Miners journey overview">
+          <ol className="mt-10 flex snap-x gap-2 overflow-x-auto pb-2 text-xs font-semibold text-muted sm:flex-wrap sm:overflow-visible sm:pb-0" aria-label="Miners journey overview">
             {heroJourneyStages.map((stage, index) => (
-              <li key={stage} className="flex shrink-0 snap-start items-center gap-2 rounded-full border border-ink/10 bg-white px-3 py-2 shadow-sm">
-                <span className="text-xs font-bold text-indigoElectric">{String(index + 1).padStart(2, "0")}</span>
+              <li key={stage} className="flex shrink-0 snap-start items-center gap-2 rounded-full border border-ink/10 bg-white/72 px-3 py-1.5">
+                <span className="text-[0.68rem] font-bold text-indigoElectric/80">{String(index + 1).padStart(2, "0")}</span>
                 {stage}
               </li>
             ))}
@@ -65,7 +65,6 @@ export default function Home() {
             <p className="mt-6 text-lg leading-8 text-muted">
               Learning how to program is only the beginning. Miners Group exists to help close the gap between technical knowledge and real-world software development experience.
             </p>
-            <p className="mt-6 text-2xl font-semibold tracking-tight text-ink">Miners Group exists to close this gap.</p>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="rounded-[2rem] border border-ink/10 bg-white p-5 shadow-soft">
@@ -181,7 +180,7 @@ export default function Home() {
             <ButtonLink href="/programs#mentorship" variant="secondary" className="mt-8">Explore Mentorship</ButtonLink>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="relative rounded-[2rem] border border-ink/10 bg-white p-6 shadow-soft">
+            <div className="relative rounded-[2rem] border border-ink/10 bg-white p-6 shadow-sm">
               <div className="grid gap-4 sm:grid-cols-2">
                 {["Which path fits me?", "What should I learn next?", "How can I improve this project?", "Is my portfolio ready?", "How do I prepare for internships?"].map((item) => (
                   <div key={item} className="rounded-2xl bg-offWhite p-4 text-sm font-semibold text-ink">{item}</div>
@@ -197,7 +196,7 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section id="services" className="bg-white/52">
+      <Section id="services" className="bg-white/35">
         <Reveal>
           <SectionIntro eyebrow="Services" title="What Miners Group offers" text="Services are grouped around building software, operating systems reliably, and enabling people and teams through training and collaboration." />
         </Reveal>
@@ -215,7 +214,7 @@ export default function Home() {
               {communityActivities.map((activity, index) => {
                 const Icon = activity.icon;
                 return (
-                  <div key={activity.title} className={`rounded-[1.5rem] border border-ink/10 bg-white p-5 shadow-soft ${index % 2 ? "translate-y-5" : ""}`}>
+                  <div key={activity.title} className="rounded-[1.5rem] border border-ink/10 bg-white p-5 shadow-sm">
                     <Icon className="h-5 w-5 text-indigoElectric" />
                     <p className="mt-8 text-sm font-semibold text-ink">{activity.title}</p>
                   </div>
@@ -236,7 +235,7 @@ export default function Home() {
             />
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="rounded-[2rem] border border-ink/10 bg-white p-6 shadow-soft sm:p-8">
+            <div className="rounded-[2rem] border border-ink/10 bg-white p-6 shadow-sm sm:p-8">
               <div className="grid gap-3 sm:grid-cols-2">
                 {["Internships", "Contributor Opportunities", "Training Cohorts", "Mentorship Roles"].map((item) => (
                   <div key={item} className="rounded-2xl bg-offWhite p-4 text-sm font-semibold text-ink">
