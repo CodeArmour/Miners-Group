@@ -315,12 +315,44 @@ export const opportunities = [
 ];
 
 export const communityActivities = [
-  { title: "Coding Sessions", icon: Code2 },
-  { title: "Workshops", icon: Lightbulb },
-  { title: "Challenges", icon: BrainCircuit },
-  { title: "Mentor Reviews", icon: MessagesSquare },
-  { title: "Project Teams", icon: UsersRound },
-  { title: "Technical Collaboration", icon: Handshake }
+  { title: "Coding Sessions", icon: Code2, text: "Work together on technical problems and practical exercises.", className: "lg:col-span-4" },
+  { title: "Workshops", icon: Lightbulb, text: "Focused sessions around tools, concepts, engineering practices, and career topics.", className: "lg:col-span-4" },
+  { title: "Challenges", icon: BrainCircuit, text: "Small technical challenges designed to encourage practice and discussion.", className: "lg:col-span-3" },
+  { title: "Mentor Reviews", icon: MessagesSquare, text: "Get thoughtful feedback on projects, portfolios, technical decisions, and learning direction.", className: "lg:col-span-5" },
+  { title: "Project Teams", icon: UsersRound, text: "Collaborate around experiments, Labs projects, and future community initiatives.", className: "lg:col-span-7 lg:row-span-2" },
+  { title: "Technical Collaboration", icon: Handshake, text: "Share ideas, review work, solve problems, and learn how others approach engineering.", className: "lg:col-span-5" }
+];
+
+export const communityLoop = [
+  { title: "Ask", text: "Questions create direction." },
+  { title: "Share", text: "Knowledge becomes more valuable when it moves between people." },
+  { title: "Build", text: "Ideas become practical when people work on them." },
+  { title: "Review", text: "Feedback helps improve both the work and the person behind it." },
+  { title: "Mentor", text: "Experience can shorten someone else's learning path." },
+  { title: "Grow", text: "Progress creates new contributors, collaborators, and future mentors." }
+];
+
+export const communityRoles = [
+  { title: "Learner", text: "Ask questions, participate in sessions, practice, and learn from others." },
+  { title: "Builder", text: "Work on ideas, experiments, and collaborative projects." },
+  { title: "Reviewer", text: "Give thoughtful technical or product feedback." },
+  { title: "Mentor", text: "Help others with direction, engineering decisions, portfolios, or career preparation." },
+  { title: "Contributor", text: "Help with community activities, content, documentation, design, organization, or technical initiatives." }
+];
+
+export const communityCollaborationFlow = ["Question", "Idea", "Small Experiment", "Team", "Miners Labs", "Working Project"];
+
+export const knowledgeFlow = ["Learn", "Document", "Share", "Discuss", "Improve"];
+
+export const communityCode = [
+  "Be curious.",
+  "Ask clearly.",
+  "Share what you know.",
+  "Give useful feedback.",
+  "Respect different experience levels.",
+  "Take ownership.",
+  "Build before you brag.",
+  "Help someone behind you."
 ];
 
 export const values = [
