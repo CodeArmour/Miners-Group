@@ -17,12 +17,16 @@ export default function ProgramsPage() {
       <PageHero
         eyebrow="Programs"
         title="Programs designed to move you forward."
-        text="Static program areas are prepared for the first website version. Real schedules, mentors, duration, requirements, and application status can connect later."
+        text="Practical programs are being developed to help students and developers strengthen technical skills, practice modern engineering workflows, receive guidance, and prepare for meaningful opportunities."
         cta="Explore Opportunities"
         href="/join"
       />
       <Section>
-        <SectionIntro eyebrow="Training Programs" title="Practical learning tracks being prepared." />
+        <SectionIntro
+          eyebrow="Learning Areas"
+          title="Technical directions for future training, workshops, and guided practice."
+          text="These areas show where Miners is focusing its learning ecosystem as programs and cohorts take shape."
+        />
         <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {programs.map((program) => (
             <div key={program} className="rounded-2xl border border-ink/10 bg-white p-4 text-sm font-semibold text-ink shadow-sm">
@@ -35,22 +39,22 @@ export default function ProgramsPage() {
         <FeatureList
           items={[
             {
-              title: "Training Programs",
-              text: "Structured practical learning experiences focused on specific technical skills.",
+              title: "Training",
+              text: "Structured practical learning and workshops focused on skills developers can apply.",
               icon: GraduationCap,
-              meta: "Preparing"
+              meta: "In Development"
             },
             {
-              title: "Internship Program",
-              text: "Future structured exposure to requirements, planning, Git workflows, code reviews, testing, QA, documentation, and delivery.",
+              title: "Internships",
+              text: "Future structured practical experience around requirements, planning, Git, reviews, testing, QA, documentation, and delivery.",
               icon: GitPullRequestArrow,
-              meta: "No active openings"
+              meta: "Applications Not Open Yet"
             },
             {
-              title: "Mentorship Program",
-              text: "Guidance for roadmaps, specialization choices, portfolio reviews, certifications, internship preparation, and job preparation.",
+              title: "Mentorship",
+              text: "Guidance around learning roadmaps, specialization, portfolio, certifications, internship preparation, and career direction.",
               icon: Compass,
-              meta: "Preparing"
+              meta: "Open for Requests"
             }
           ]}
         />

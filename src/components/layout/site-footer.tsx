@@ -4,7 +4,7 @@ import { siteConfig } from "@/data/site";
 
 const footerGroups = [
   { title: "Explore", links: [["About", "/about"], ["Services", "/services"], ["Programs", "/programs"], ["Projects", "/projects"], ["Community", "/community"]] },
-  { title: "Opportunities", links: [["Join Miners", "/join"], ["Internships", "/programs#internship"], ["Mentorship", "/programs#mentorship"], ["Careers", "/join"], ["Become a Mentor", "/join#mentor"]] },
+  { title: "Opportunities", links: [["Join Miners", "/join"], ["Internships", "/programs#internship"], ["Mentorship", "/programs#mentorship"], ["Become a Mentor", "/join#mentor"]] },
   { title: "Organizations", links: [["For Companies", "/for-companies"], ["Start a Project", "/for-companies#start-project"], ["Partnerships", "/for-companies#partner"], ["Contact", "/contact"]] }
 ];
 
@@ -38,8 +38,10 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white/48 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Miners Group. All rights reserved.</p>
-          <p>Social links will be added when official accounts are available.</p>
+          <p>&copy; {new Date().getFullYear()} Miners Group. All rights reserved.</p>
+          <Link className="focus-ring rounded transition hover:text-white" href="/contact">
+            Contact Miners Group
+          </Link>
         </div>
       </div>
     </footer>

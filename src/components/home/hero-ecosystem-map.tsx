@@ -44,12 +44,13 @@ export function HeroEcosystemMap() {
             key={pillar.title}
             className={`absolute ${positions[index]} w-40 rounded-3xl border border-ink/10 bg-white/88 p-4 shadow-soft backdrop-blur`}
             initial={reduceMotion ? false : { opacity: 0, y: 18, scale: 0.96 }}
-            animate={reduceMotion ? undefined : { opacity: 1, y: [0, -6, 0], scale: 1 }}
+            animate={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
             transition={{
               opacity: { duration: 0.4, delay: index * 0.12 },
-              y: { duration: 5 + index, repeat: Infinity, ease: "easeInOut" },
+              y: { duration: 0.5, delay: index * 0.12, ease: "easeOut" },
               scale: { duration: 0.4, delay: index * 0.12 }
             }}
+            whileHover={reduceMotion ? undefined : { y: -4 }}
           >
             <div className="flex items-center gap-2">
               <span className="grid h-9 w-9 place-items-center rounded-2xl bg-lilacSoft text-indigoElectric">

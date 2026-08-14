@@ -15,8 +15,7 @@ import {
   communityActivities,
   companyProcess,
   ecosystemPillars,
-  opportunities,
-  projectPlaceholders,
+  labsAreas,
   siteConfig
 } from "@/data/site";
 
@@ -99,7 +98,7 @@ export default function Home() {
             const dark = pillar.title.includes("Labs");
             return (
               <Reveal key={pillar.title} delay={index * 0.05} className={pillar.className}>
-                <article className={`relative flex h-full min-h-[230px] flex-col justify-between overflow-hidden rounded-[2rem] border p-7 shadow-soft ${dark ? "dark-technical-grid border-white/10 bg-ink text-white" : "border-ink/10 bg-white text-ink"}`}>
+                <article className={`relative flex h-full min-h-[230px] flex-col justify-between overflow-hidden rounded-[2rem] border p-7 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift ${dark ? "dark-technical-grid border-white/10 bg-ink text-white" : "border-ink/10 bg-white text-ink"}`}>
                   <div>
                     <div className="flex items-center justify-between gap-4">
                       <span className={`grid h-12 w-12 place-items-center rounded-2xl ${dark ? "bg-white/10 text-limeSignal" : "bg-lilacSoft text-indigoElectric"}`}>
@@ -148,12 +147,12 @@ export default function Home() {
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-limeSignal">Miners Labs</p>
             <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">We learn by building.</h2>
             <p className="mt-5 text-lg leading-8 text-white/66">
-              Projects are central to the Miners experience. No client work or results are shown until they are real and can be shared.
+              Miners Labs is where ideas, experiments, and collaborative projects become practical engineering experience.
             </p>
           </div>
         </Reveal>
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
-          {projectPlaceholders.map((project) => (
+          {labsAreas.map((project) => (
             <article key={project.name} className="rounded-[2rem] border border-white/10 bg-white/8 p-6">
               <div className="mb-8 flex items-center justify-between gap-3">
                 <span className="rounded-full bg-limeSignal px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-ink">{project.status}</span>
@@ -225,22 +224,28 @@ export default function Home() {
       </Section>
 
       <Section className="bg-lilacSoft/35">
-        <Reveal>
-          <SectionIntro eyebrow="Opportunities" title="Internships and opportunities will appear here when they are active." />
-        </Reveal>
-        <div className="mt-10 rounded-[2rem] border border-ink/10 bg-white p-6 shadow-soft">
-          <div className="grid gap-4 lg:grid-cols-5">
-            {opportunities.map((opportunity) => (
-              <article key={opportunity.type} className="rounded-2xl border border-ink/10 bg-offWhite p-4">
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-indigoElectric">{opportunity.status}</p>
-                <h3 className="mt-3 text-lg font-semibold text-ink">{opportunity.type}</h3>
-                <p className="mt-3 text-sm leading-6 text-muted">{opportunity.description}</p>
-              </article>
-            ))}
-          </div>
-          <div className="mt-6 rounded-2xl bg-ink p-5 text-white">
-            <p className="font-semibold">No active opportunities right now — join the community to hear about future programs.</p>
-          </div>
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <Reveal>
+            <SectionIntro
+              eyebrow="Future Opportunities"
+              title="Internships, cohorts, contributor paths, and mentorship roles will open as programs grow."
+              text="Miners is preparing the spaces where people can learn, contribute, and gain practical experience. Join early to hear when the next path opens."
+            />
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="rounded-[2rem] border border-ink/10 bg-white p-6 shadow-soft sm:p-8">
+              <div className="grid gap-3 sm:grid-cols-2">
+                {["Internships", "Contributor Opportunities", "Training Cohorts", "Mentorship Roles"].map((item) => (
+                  <div key={item} className="rounded-2xl bg-offWhite p-4 text-sm font-semibold text-ink">
+                    {item}
+                  </div>
+                ))}
+              </div>
+              <ButtonLink href="/join" className="mt-6">
+                Join Miners for Future Opportunities
+              </ButtonLink>
+            </div>
+          </Reveal>
         </div>
       </Section>
 

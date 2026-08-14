@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { CoffeeChatForm, ContactForm } from "@/components/forms/email-forms";
 import { PageHero } from "@/components/page/page-hero";
 import { Section, SectionIntro } from "@/components/ui/section";
-import { companyProcess } from "@/data/site";
+import { ButtonLink } from "@/components/ui/button";
+import { companyCollaborationPaths, companyProcess } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "For Companies",
@@ -18,7 +19,24 @@ export default function ForCompaniesPage() {
         text="Companies and organizations can work with Miners Group through software projects, technical training, mentorship initiatives, internships, sponsorships, and community partnerships."
       />
       <Section className="bg-white/52">
-        <SectionIntro eyebrow="Build With Us" title="A clear path from idea to delivery." />
+        <SectionIntro eyebrow="Ways To Collaborate" title="Three paths for working with Miners." />
+        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          {companyCollaborationPaths.map((path, index) => (
+            <article key={path.title} className="rounded-[1.5rem] border border-ink/10 bg-white p-6 shadow-soft">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigoElectric">
+                {String(index + 1).padStart(2, "0")}
+              </p>
+              <h2 className="mt-5 text-2xl font-semibold tracking-tight text-ink">{path.title}</h2>
+              <p className="mt-4 text-sm leading-6 text-muted">{path.text}</p>
+              <ButtonLink href={path.href} variant="secondary" className="mt-6">
+                {path.cta}
+              </ButtonLink>
+            </article>
+          ))}
+        </div>
+      </Section>
+      <Section>
+        <SectionIntro eyebrow="Project Process" title="A clear path from idea to delivery." />
         <div className="mt-10 flex flex-wrap gap-3">
           {companyProcess.map((step) => (
             <span key={step} className="rounded-full border border-ink/10 bg-white px-5 py-3 text-sm font-semibold text-ink shadow-sm">
@@ -33,7 +51,7 @@ export default function ForCompaniesPage() {
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Start a Project</p>
             <h2 className="text-4xl font-semibold tracking-tight text-ink">Tell us what you are trying to build.</h2>
             <p className="mt-5 text-lg leading-8 text-muted">
-              This form prepares an email with your project details. When the backend is implemented later, this submission layer can be replaced without redesigning the UI.
+              Share the goal, context, and what you need help with. We can explore scope, direction, and the right way to collaborate.
             </p>
           </div>
           <ContactForm mode="project" />

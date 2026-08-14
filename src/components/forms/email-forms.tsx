@@ -30,7 +30,7 @@ export function ContactForm({ mode = "contact" }: { mode?: "contact" | "project"
         String(form.get("message") || "")
       ]
     });
-    setStatus("Opening your email app with the details filled in.");
+    setStatus("Your message is ready to send.");
     openMailto(href);
   }
 
@@ -59,7 +59,7 @@ export function ContactForm({ mode = "contact" }: { mode?: "contact" | "project"
       <Field label="Relevant link" name="link" placeholder="LinkedIn, GitHub, website, or portfolio" />
       <button type="submit" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigoElectric">
         <Send className="h-4 w-4" aria-hidden="true" />
-        {mode === "project" ? "Prepare Project Email" : "Prepare Email"}
+        {mode === "project" ? "Start the Conversation" : "Send Message"}
       </button>
       {status ? <p className="text-sm text-muted" role="status">{status}</p> : null}
     </form>
@@ -82,7 +82,7 @@ export function CoffeeChatForm() {
         ["Topic", String(form.get("topic") || "")]
       ]
     });
-    setStatus("Opening your email app with the booking request.");
+    setStatus("Your coffee chat request is ready to send.");
     openMailto(href);
   }
 
@@ -103,6 +103,70 @@ export function CoffeeChatForm() {
         Book a Coffee Chat
       </button>
       {status ? <p className="text-sm text-white/64" role="status">{status}</p> : null}
+    </form>
+  );
+}
+
+export function JoinApplicationForm() {
+  const [status, setStatus] = useState("");
+
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const href = buildMailto({
+      subject: "Join Miners Group",
+      lines: [
+        ["Full name", String(form.get("name") || "")],
+        ["Email", String(form.get("email") || "")],
+        ["Join as", String(form.get("joinAs") || "")],
+        ["Current experience", String(form.get("experience") || "")],
+        ["Areas of interest", String(form.get("interests") || "")],
+        ["Relevant link", String(form.get("link") || "")],
+        "",
+        "What do you want to learn, build, or contribute?",
+        String(form.get("contribution") || ""),
+        "",
+        "Motivation:",
+        String(form.get("motivation") || "")
+      ]
+    });
+    setStatus("Your application is ready to send.");
+    openMailto(href);
+  }
+
+  return (
+    <form onSubmit={onSubmit} className="grid gap-5 rounded-[2rem] border border-ink/10 bg-white p-6 shadow-soft sm:p-8">
+      <div className="grid gap-5 sm:grid-cols-2">
+        <Field label="Full name" name="name" required />
+        <Field label="Email" name="email" type="email" required />
+      </div>
+      <div className="grid gap-5 sm:grid-cols-2">
+        <label className="grid gap-2 text-sm font-semibold text-ink">
+          Join as
+          <select name="joinAs" className="min-h-12 rounded-2xl border border-ink/10 bg-offWhite px-4 text-base font-normal text-ink focus:border-indigoElectric focus:outline-none" required>
+            <option>Student</option>
+            <option>Developer</option>
+            <option>Mentor</option>
+            <option>Community Contributor</option>
+          </select>
+        </label>
+        <Field label="Current experience" name="experience" placeholder="Beginner, student, junior developer..." required />
+      </div>
+      <Field label="Areas of interest" name="interests" placeholder="Frontend, AI, cloud, mentorship, community..." required />
+      <label className="grid gap-2 text-sm font-semibold text-ink">
+        What do you want to learn, build, or contribute?
+        <textarea name="contribution" rows={4} className="rounded-2xl border border-ink/10 bg-offWhite px-4 py-3 text-base font-normal text-ink focus:border-indigoElectric focus:outline-none" required />
+      </label>
+      <Field label="Relevant link" name="link" placeholder="LinkedIn, GitHub, website, or portfolio" />
+      <label className="grid gap-2 text-sm font-semibold text-ink">
+        Motivation
+        <textarea name="motivation" rows={5} className="rounded-2xl border border-ink/10 bg-offWhite px-4 py-3 text-base font-normal text-ink focus:border-indigoElectric focus:outline-none" required />
+      </label>
+      <button type="submit" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigoElectric">
+        <Send className="h-4 w-4" aria-hidden="true" />
+        Send Your Application
+      </button>
+      {status ? <p className="text-sm text-muted" role="status">{status}</p> : null}
     </form>
   );
 }

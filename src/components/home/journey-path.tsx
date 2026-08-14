@@ -14,9 +14,14 @@ export function JourneyPath() {
   return (
     <div ref={ref} className="relative mt-14">
       <div className="hidden lg:block">
-        <div className="absolute left-0 right-0 top-[4.7rem] h-px bg-ink/12" />
+        <div className="mb-8 flex items-center justify-between text-xs font-bold uppercase tracking-[0.18em] text-muted">
+          <span>Knowledge</span>
+          <span className="text-indigoElectric">Experience</span>
+          <span>Opportunity</span>
+        </div>
+        <div className="absolute left-0 right-0 top-[7.7rem] h-px bg-ink/12" />
         <motion.div
-          className="absolute left-0 top-[4.7rem] h-[3px] origin-left rounded-full bg-indigoElectric"
+          className="absolute left-0 top-[7.7rem] h-[3px] origin-left rounded-full bg-indigoElectric"
           style={reduceMotion ? { width: "100%" } : { width: desktopScale }}
         />
         <div className="grid grid-cols-6 gap-5">
@@ -24,7 +29,7 @@ export function JourneyPath() {
             const Icon = step.icon;
             return (
               <article key={step.title} className="relative pt-16">
-                <div className="absolute left-0 top-[3.45rem] grid h-10 w-10 place-items-center rounded-full border border-indigoElectric/20 bg-white shadow-soft">
+                <div className="absolute left-0 top-[3.45rem] grid h-10 w-10 place-items-center rounded-full border border-indigoElectric/20 bg-white shadow-soft ring-4 ring-offWhite">
                   <Icon className="h-4 w-4 text-indigoElectric" />
                 </div>
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigoElectric">
@@ -48,7 +53,7 @@ export function JourneyPath() {
             const Icon = step.icon;
             return (
               <article key={step.title} className="relative pl-16">
-                <div className="absolute left-0 top-0 grid h-10 w-10 place-items-center rounded-full border border-indigoElectric/20 bg-white shadow-soft">
+                <div className="absolute left-0 top-0 grid h-10 w-10 place-items-center rounded-full border border-indigoElectric/20 bg-white shadow-soft ring-4 ring-offWhite">
                   <Icon className="h-4 w-4 text-indigoElectric" />
                 </div>
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigoElectric">

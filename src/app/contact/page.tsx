@@ -20,10 +20,10 @@ export default function ContactPage() {
       <Section>
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Email</p>
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Contact Miners</p>
             <h2 className="text-4xl font-semibold tracking-tight text-ink">{siteConfig.contactEmail}</h2>
             <p className="mt-5 text-lg leading-8 text-muted">
-              Forms currently prepare an email draft. A real backend can be connected in the next implementation phase.
+              For general questions, projects, mentorship, programs, partnerships, and community conversations.
             </p>
           </div>
           <ContactForm />
@@ -33,9 +33,9 @@ export default function ContactPage() {
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-limeSignal">Coffee Chat</p>
-            <h2 className="text-4xl font-semibold tracking-tight">Book a coffee chat by email.</h2>
+            <h2 className="text-4xl font-semibold tracking-tight">Prefer an informal conversation?</h2>
             <p className="mt-5 text-lg leading-8 text-white/66">
-              Choose a preferred date and time. The form opens your email app with the booking request details.
+              Choose a preferred date and time and tell us briefly what you would like to discuss.
             </p>
           </div>
           <CoffeeChatForm />

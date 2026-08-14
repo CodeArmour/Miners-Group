@@ -10,7 +10,6 @@ import {
   Lightbulb,
   MessagesSquare,
   Rocket,
-  ShieldCheck,
   Sparkles,
   UsersRound,
   Wrench
@@ -21,7 +20,7 @@ export const siteConfig = {
   tagline: "From learning to real software experience.",
   description:
     "Miners Group connects students, developers, mentors, and organizations through practical training, mentorship, internships, real software projects, and career guidance.",
-  url: "https://minersgroup.com",
+  url: "https://miners-group.vercel.app",
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@minersgroup.com",
   socialLinks: {
     linkedIn: "",
@@ -50,7 +49,7 @@ export const journeySteps = [
   {
     title: "Practice",
     icon: Wrench,
-    text: "Strengthen your skills through exercises, challenges, collaborative sessions, and small implementations."
+    text: "Strengthen your skills through exercises, challenges, collaborative sessions, and small practical builds."
   },
   {
     title: "Build",
@@ -125,7 +124,7 @@ export const ecosystemPillars = [
 export const serviceGroups = [
   {
     title: "Build",
-    summary: "Product and software implementation for practical business needs.",
+    summary: "Product and software delivery for practical business needs.",
     items: ["Web Applications", "Mobile Applications", "Custom Software", "AI Solutions"]
   },
   {
@@ -153,32 +152,32 @@ export const programs = [
   "Testing & QA"
 ];
 
-export const projectPlaceholders = [
+export const labsAreas = [
   {
-    name: "Miners Labs Internal Projects",
-    category: "Internal / Labs",
-    status: "Preparing",
+    name: "Internal Labs",
+    category: "Products and tools",
+    status: "Building",
     purpose:
-      "Structured project spaces for members to practice planning, implementation, review, and delivery workflows.",
-    technologies: ["Next.js", "React", "TypeScript"],
-    team: "Guided community teams"
+      "Products and tools created inside Miners Group to practice structured software development.",
+    technologies: ["Planning", "Build", "Review"],
+    team: "Guided Labs teams"
   },
   {
     name: "Community Experiments",
-    category: "Experimental",
+    category: "Exploration",
     status: "Coming Soon",
     purpose:
-      "Small collaborative builds that help members move from tutorials into shipped interfaces and documented decisions.",
-    technologies: ["Web", "AI", "Cloud"],
-    team: "Project contributors"
+      "Small collaborative ideas where members can explore technologies and learn by shipping.",
+    technologies: ["Web", "AI", "Product"],
+    team: "Community contributors"
   },
   {
-    name: "Open Source Practice Tracks",
-    category: "Learning / Open Source",
-    status: "Coming Soon",
+    name: "Open Source Practice",
+    category: "Engineering workflow",
+    status: "Preparing",
     purpose:
-      "Practice repositories for Git workflows, pull requests, issue handling, code review, testing, and documentation.",
-    technologies: ["GitHub", "Testing", "Documentation"],
+      "Repositories designed around Git, pull requests, issues, testing, review, and documentation.",
+    technologies: ["Git", "QA", "Documentation"],
     team: "Mentored contributors"
   }
 ];
@@ -221,13 +220,34 @@ export const communityActivities = [
 ];
 
 export const values = [
-  "Learn Continuously",
-  "Build Practically",
-  "Grow Together",
-  "Share Knowledge",
-  "Take Ownership",
-  "Create Opportunities",
-  "Quality Matters"
+  {
+    title: "Learn Continuously",
+    text: "Technology changes quickly, so Miners treats learning as an ongoing practice."
+  },
+  {
+    title: "Build Practically",
+    text: "Knowledge becomes stronger when it is applied to real decisions, constraints, and working software."
+  },
+  {
+    title: "Grow Together",
+    text: "People progress faster when they can ask, review, explain, and improve with others."
+  },
+  {
+    title: "Share Knowledge",
+    text: "Experience becomes more valuable when it helps someone else move forward."
+  },
+  {
+    title: "Take Ownership",
+    text: "Professional growth comes from responsibility, communication, and care for the work."
+  },
+  {
+    title: "Create Opportunities",
+    text: "Talent needs pathways to practice, demonstrate ability, and meet meaningful next steps."
+  },
+  {
+    title: "Quality Matters",
+    text: "Learning environments should still encourage clear standards and thoughtful engineering."
+  }
 ];
 
 export const faqs = [
@@ -255,6 +275,47 @@ export const faqs = [
 
 export const companyProcess = ["Idea", "Scope", "Team", "Build", "Review", "Deliver"];
 
+export const deliveryProcess = [
+  { title: "Discover", text: "Understand the goal, audience, constraints, and practical context." },
+  { title: "Scope", text: "Shape the work into clear priorities, requirements, and delivery steps." },
+  { title: "Build", text: "Implement through focused engineering work and transparent collaboration." },
+  { title: "Review", text: "Evaluate decisions, quality, usability, and readiness before release." },
+  { title: "Deliver", text: "Ship the agreed work with clear handoff and documentation where needed." },
+  { title: "Support", text: "Continue improving, maintaining, or extending the solution when appropriate." }
+];
+
+export const labsProcess = ["Idea", "Plan", "Build", "Review", "QA", "Document", "Ship", "Reflect"];
+
+export const communityPrinciples = [
+  { title: "Ask", text: "Make space for questions and honest technical discussion." },
+  { title: "Share", text: "Turn useful lessons into knowledge others can build on." },
+  { title: "Build", text: "Move beyond theory by working on practical ideas together." },
+  { title: "Review", text: "Improve work through feedback, code review, and reflection." },
+  { title: "Mentor", text: "Help others understand choices, tradeoffs, and next steps." },
+  { title: "Grow", text: "Treat progress as something the community can create together." }
+];
+
+export const companyCollaborationPaths = [
+  {
+    title: "Build With Miners",
+    cta: "Start a Project",
+    href: "/for-companies#start-project",
+    text: "For web applications, mobile applications, custom software, AI solutions, cloud/DevOps, and technical collaboration."
+  },
+  {
+    title: "Develop Talent",
+    cta: "Discuss a Program",
+    href: "/contact",
+    text: "For internships, workshops, technical challenges, mentorship initiatives, student development, and speakers."
+  },
+  {
+    title: "Partner With Miners",
+    cta: "Explore Partnership",
+    href: "/for-companies#partner",
+    text: "For community initiatives, events, sponsorship, workshops, collaborative programs, and project challenges."
+  }
+];
+
 export const contactReasons = [
   "I want to join Miners Group",
   "I want an internship",
@@ -269,7 +330,7 @@ export const contactReasons = [
 ];
 
 export const trustPrinciples = [
-  { title: "No inflated claims", icon: ShieldCheck, text: "The site avoids invented statistics, clients, partners, testimonials, or outcomes." },
-  { title: "Structured practice", icon: GitBranch, text: "Members are introduced to planning, Git workflows, review, QA, documentation, and delivery." },
-  { title: "Balanced mission", icon: UsersRound, text: "The company-services path supports the broader learning, mentorship, and community ecosystem." }
+  { title: "Earn trust through real work", icon: GitBranch, text: "Credibility should come from what we build, how we work, and the value we create, not inflated promises." },
+  { title: "Practice the full process", icon: Layers3, text: "Members are introduced to planning, Git workflows, review, QA, documentation, and delivery." },
+  { title: "Keep the mission balanced", icon: UsersRound, text: "Software services, mentorship, learning, and community should reinforce each other inside one ecosystem." }
 ];

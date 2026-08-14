@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { CheckCircle2 } from "lucide-react";
 import { PageHero } from "@/components/page/page-hero";
 import { FeatureList } from "@/components/page/feature-list";
 import { Section, SectionIntro } from "@/components/ui/section";
@@ -48,12 +47,20 @@ export default function AboutPage() {
       </Section>
       <Section>
         <SectionIntro eyebrow="Values" title="Principles behind the ecosystem." />
-        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {values.map((value) => (
-            <div key={value} className="flex items-center gap-3 rounded-2xl border border-ink/10 bg-white p-4 font-semibold text-ink shadow-sm">
-              <CheckCircle2 className="h-5 w-5 text-indigoElectric" />
-              {value}
-            </div>
+        <div className="mt-10 grid gap-4 lg:grid-cols-12">
+          {values.map((value, index) => (
+            <article
+              key={value.title}
+              className={`rounded-[1.5rem] border border-ink/10 bg-white p-6 shadow-sm ${
+                index === 0 || index === 6 ? "lg:col-span-6" : "lg:col-span-3"
+              }`}
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigoElectric">
+                {String(index + 1).padStart(2, "0")}
+              </p>
+              <h2 className="mt-4 text-xl font-semibold tracking-tight text-ink">{value.title}</h2>
+              <p className="mt-3 text-sm leading-6 text-muted">{value.text}</p>
+            </article>
           ))}
         </div>
       </Section>
