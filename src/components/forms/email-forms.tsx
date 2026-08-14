@@ -66,6 +66,104 @@ export function ContactForm({ mode = "contact" }: { mode?: "contact" | "project"
   );
 }
 
+export function ProjectInquiryForm() {
+  const [status, setStatus] = useState("");
+
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const href = buildMailto({
+      subject: "Project inquiry for Miners Group",
+      lines: [
+        ["Full name", String(form.get("name") || "")],
+        ["Email", String(form.get("email") || "")],
+        ["Company / Organization", String(form.get("company") || "")],
+        ["Project type", String(form.get("projectType") || "")],
+        ["Approximate stage", String(form.get("stage") || "")],
+        "",
+        "What would you like to build?",
+        String(form.get("build") || ""),
+        "",
+        "Message:",
+        String(form.get("message") || "")
+      ]
+    });
+    setStatus("Your project inquiry is ready to send.");
+    openMailto(href);
+  }
+
+  return (
+    <form onSubmit={onSubmit} className="grid gap-5 rounded-[2rem] border border-white/10 bg-white p-6 text-ink shadow-soft sm:p-8">
+      <div className="grid gap-5 sm:grid-cols-2">
+        <Field label="Full name" name="name" required />
+        <Field label="Email" name="email" type="email" required />
+      </div>
+      <Field label="Company / Organization" name="company" required />
+      <label className="grid gap-2 text-sm font-semibold text-ink">
+        What would you like to build?
+        <textarea
+          name="build"
+          rows={4}
+          className="rounded-2xl border border-ink/10 bg-offWhite px-4 py-3 text-base font-normal text-ink focus:border-indigoElectric focus:outline-none"
+          required
+        />
+      </label>
+      <div className="grid gap-5 sm:grid-cols-2">
+        <label className="grid gap-2 text-sm font-semibold text-ink">
+          Project type
+          <select
+            name="projectType"
+            className="min-h-12 rounded-2xl border border-ink/10 bg-offWhite px-4 text-base font-normal text-ink focus:border-indigoElectric focus:outline-none"
+            required
+          >
+            <option>Not sure yet</option>
+            <option>Website / Web Application</option>
+            <option>Mobile Application</option>
+            <option>Custom Software</option>
+            <option>AI Solution</option>
+            <option>Cloud / DevOps</option>
+            <option>Technical Support</option>
+            <option>Training / Workshop</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label className="grid gap-2 text-sm font-semibold text-ink">
+          Approximate stage
+          <select
+            name="stage"
+            className="min-h-12 rounded-2xl border border-ink/10 bg-offWhite px-4 text-base font-normal text-ink focus:border-indigoElectric focus:outline-none"
+            required
+          >
+            <option>Early idea</option>
+            <option>Requirements are forming</option>
+            <option>Ready to scope</option>
+            <option>Existing product needs help</option>
+            <option>Not sure yet</option>
+          </select>
+        </label>
+      </div>
+      <label className="grid gap-2 text-sm font-semibold text-ink">
+        Message
+        <textarea
+          name="message"
+          rows={5}
+          className="rounded-2xl border border-ink/10 bg-offWhite px-4 py-3 text-base font-normal text-ink focus:border-indigoElectric focus:outline-none"
+          required
+        />
+      </label>
+      <button type="submit" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-indigoElectric px-5 py-3 text-sm font-semibold text-white transition hover:bg-ink">
+        <Send className="h-4 w-4" aria-hidden="true" />
+        Send Project Inquiry
+      </button>
+      {status ? (
+        <p className="text-sm text-muted" role="status">
+          {status}
+        </p>
+      ) : null}
+    </form>
+  );
+}
+
 export function CoffeeChatForm() {
   const [status, setStatus] = useState("");
 
