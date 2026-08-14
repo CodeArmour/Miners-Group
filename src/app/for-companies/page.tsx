@@ -136,35 +136,35 @@ export default function ForCompaniesPage() {
             View All Projects
           </ButtonLink>
         </div>
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="mt-12 grid items-stretch gap-6 lg:grid-cols-2">
           {featuredProjects.map((project) => (
-            <article key={project.slug} className="group overflow-hidden rounded-[2rem] border border-ink/10 bg-white shadow-soft">
-              <div className="border-b border-ink/10 bg-ink/[0.03] p-3">
+            <article key={project.slug} className="group flex h-full flex-col overflow-hidden rounded-[2rem] border border-ink/10 bg-white shadow-soft">
+              <div className="relative h-64 border-b border-ink/10 bg-ink/[0.03] p-3 sm:h-72 lg:h-80">
                 <Image
                   src={project.image}
                   alt={project.imageAlt}
                   width={project.slug === "andalucia" ? 1730 : 1393}
                   height={project.slug === "andalucia" ? 942 : 967}
                   sizes="(min-width: 1024px) 44vw, 92vw"
-                  className="h-auto w-full rounded-[1.25rem] border border-ink/10 bg-white object-contain transition duration-300 group-hover:scale-[1.01]"
+                  className="h-full w-full rounded-[1.25rem] border border-ink/10 bg-white object-contain transition duration-300 group-hover:scale-[1.01]"
                 />
               </div>
-              <div className="p-6 sm:p-7">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-indigoElectric">{project.index} / {project.category}</p>
-                <h2 className="mt-4 text-2xl font-semibold tracking-tight text-ink">{project.name}</h2>
+              <div className="flex flex-1 flex-col p-6 sm:p-7">
+                <h2 className="text-2xl font-semibold tracking-tight text-ink">{project.name}</h2>
                 <p className="mt-3 text-sm leading-6 text-muted">{project.description}</p>
-                {project.href ? (
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${project.name} live project`}
-                    className="focus-ring mt-5 inline-flex items-center gap-2 rounded-full border border-ink/10 px-4 py-2 text-sm font-semibold text-ink transition hover:border-indigoElectric/30 hover:text-indigoElectric"
-                  >
-                    View Live Project
-                    <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                  </a>
-                ) : null}
+                <p className="mt-5 text-xs font-bold uppercase tracking-[0.2em] text-indigoElectric">{project.index} / {project.category}</p>
+              </div>
+              <div className="mt-auto border-t border-ink/10 px-6 py-5 sm:px-7">
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View ${project.name} live project`}
+                  className="focus-ring inline-flex items-center gap-2 rounded-full border border-ink/10 px-4 py-2 text-sm font-semibold text-ink transition hover:border-indigoElectric/30 hover:text-indigoElectric"
+                >
+                  View Live Project
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
               </div>
             </article>
           ))}
