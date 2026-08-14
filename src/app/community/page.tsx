@@ -46,20 +46,69 @@ export default function CommunityPage() {
       </section>
 
       <Section id="community-loop">
-        <SectionIntro eyebrow="How Miners Grows" title="Ask, share, build, review, mentor, grow." text="The community loop is about how people interact with each other, not a fixed professional path. People can enter the loop from different points and help it keep moving." />
-        <div className="mt-12 rounded-[2rem] border border-ink/10 bg-white p-5 shadow-soft sm:p-8">
-          <ol className="relative grid gap-4 lg:grid-cols-6" aria-label="Miners community growth loop">
-            <span className="absolute left-8 right-8 top-8 hidden h-px bg-indigoElectric/20 lg:block" aria-hidden="true" />
+        <SectionIntro
+          eyebrow="How Miners Grows"
+          title="Ask, share, build, review, mentor, grow."
+          text="Community growth is continuous. Questions become shared knowledge, knowledge becomes collaboration, experience becomes mentorship, and growing members help the next person begin."
+        />
+          <div className="mt-12 rounded-[2rem] border border-ink/10 bg-white p-5 shadow-soft sm:p-8">
+          <ol className="sr-only" aria-label="Miners community growth loop: Ask, Share, Build, Review, Mentor, Grow, then back to Ask">
+            {communityLoop.map((stage) => (
+              <li key={stage.title}>
+                {stage.title}: {stage.text}
+              </li>
+            ))}
+          </ol>
+          <div className="relative mx-auto hidden aspect-square w-full max-w-[760px] lg:block" aria-hidden="true">
+            <svg className="h-full w-full overflow-visible" viewBox="0 0 760 760">
+              {communityLoop.map((stage, index) => {
+                const segment = loopSegment(index);
+                const label = loopLabel(index);
+
+                return (
+                  <g key={stage.title} className="group">
+                    <path
+                      d={segment.path}
+                      className="fill-lilacSoft/45 stroke-white stroke-[8] transition duration-300 group-hover:fill-indigoElectric"
+                    />
+                    <path d={segment.midArc} className="fill-none stroke-indigoElectric/25 stroke-[1.5] transition duration-300 group-hover:stroke-white/55" />
+                    <foreignObject x={label.x} y={label.y} width={label.width} height={label.height} className="pointer-events-none">
+                      <div className="flex h-full flex-col justify-center px-2 text-center">
+                        <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-indigoElectric transition group-hover:text-white/80">
+                          {String(index + 1).padStart(2, "0")}
+                        </p>
+                        <h2 className="mt-1 text-lg font-bold uppercase tracking-[0.08em] text-ink transition group-hover:text-white">
+                          {stage.title}
+                        </h2>
+                        <p className="mt-2 text-[0.78rem] font-medium leading-5 text-muted transition group-hover:text-white/78">
+                          {loopDescription(stage.title, stage.text)}
+                        </p>
+                      </div>
+                    </foreignObject>
+                  </g>
+                );
+              })}
+              {loopArrowMarkers().map((marker) => (
+                <path key={marker.id} d={marker.path} fill="#5B3DF5" fillOpacity="0.38" transform={marker.transform} />
+              ))}
+            </svg>
+            <div className="absolute left-1/2 top-1/2 grid h-44 w-44 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-indigoElectric/20 bg-white text-center shadow-soft">
+              <div>
+                <MinersLogo variant="symbol" className="mx-auto h-16 w-16" />
+                <p className="mt-3 text-xs font-bold uppercase tracking-[0.2em] text-indigoElectric">Miners</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-ink/60">Community</p>
+              </div>
+            </div>
+          </div>
+          <ol className="grid gap-4 lg:hidden" aria-hidden="true">
             {communityLoop.map((stage, index) => (
-              <li key={stage.title} className="relative flex flex-col rounded-[1.5rem] border border-ink/10 bg-offWhite p-5">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-indigoElectric text-xs font-bold text-white">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h2 className="mt-5 text-lg font-semibold tracking-tight text-ink">{stage.title}</h2>
-                <p className="mt-3 text-sm leading-6 text-muted">{stage.text}</p>
-                {index === communityLoop.length - 1 ? (
-                  <p className="mt-auto pt-5 text-xs font-bold uppercase tracking-[0.16em] text-indigoElectric">Back to Ask</p>
-                ) : null}
+              <li key={stage.title} className="relative rounded-[1.5rem] border border-ink/10 bg-offWhite p-5">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigoElectric">{String(index + 1).padStart(2, "0")}</p>
+                <h2 className="mt-3 text-xl font-semibold tracking-tight text-ink">{stage.title}</h2>
+                <p className="mt-2 text-sm leading-6 text-muted">{stage.text}</p>
+                <p className="mt-4 text-xs font-bold uppercase tracking-[0.16em] text-indigoElectric">
+                  {index === communityLoop.length - 1 ? "Back to Ask" : "Next"}
+                </p>
               </li>
             ))}
           </ol>
@@ -244,4 +293,88 @@ function rolePosition(index: number) {
   ];
 
   return positions[index];
+}
+
+function loopSegment(index: number) {
+  const center = 380;
+  const outerRadius = 340;
+  const innerRadius = 154;
+  const midRadius = 252;
+  const midAngle = [-90, -30, 30, 90, 150, 210][index];
+  const startAngle = midAngle - 27.8;
+  const endAngle = midAngle + 27.8;
+  const outerStart = polarPoint(center, center, outerRadius, startAngle);
+  const outerEnd = polarPoint(center, center, outerRadius, endAngle);
+  const innerEnd = polarPoint(center, center, innerRadius, endAngle);
+  const innerStart = polarPoint(center, center, innerRadius, startAngle);
+  const midStart = polarPoint(center, center, midRadius, startAngle + 4);
+  const midEnd = polarPoint(center, center, midRadius, endAngle - 4);
+
+  return {
+    path: [
+      `M ${outerStart.x} ${outerStart.y}`,
+      `A ${outerRadius} ${outerRadius} 0 0 1 ${outerEnd.x} ${outerEnd.y}`,
+      `L ${innerEnd.x} ${innerEnd.y}`,
+      `A ${innerRadius} ${innerRadius} 0 0 0 ${innerStart.x} ${innerStart.y}`,
+      "Z"
+    ].join(" "),
+    midArc: `M ${midStart.x} ${midStart.y} A ${midRadius} ${midRadius} 0 0 1 ${midEnd.x} ${midEnd.y}`
+  };
+}
+
+function loopLabel(index: number) {
+  const center = 380;
+  const radius = 244;
+  const angle = [-90, -30, 30, 90, 150, 210][index];
+  const point = polarPoint(center, center, radius, angle);
+  const width = index === 0 || index === 3 ? 190 : 172;
+  const height = 124;
+
+  return {
+    x: point.x - width / 2,
+    y: point.y - height / 2,
+    width,
+    height
+  };
+}
+
+function loopDescription(title: string, fallback: string) {
+  const descriptions: Record<string, string> = {
+    Ask: "Questions create direction.",
+    Share: "Knowledge moves between people.",
+    Build: "Ideas become practical work.",
+    Review: "Feedback improves the work and person.",
+    Mentor: "Experience shortens the path.",
+    Grow: "Progress creates future mentors."
+  };
+
+  return descriptions[title] || fallback;
+}
+
+function loopArrowMarkers() {
+  const center = 380;
+  const radius = 356;
+  const angles = [-60, 0, 60, 120, 180, 240];
+
+  return angles.map((angle, index) => {
+    const point = polarPoint(center, center, radius, angle);
+    return {
+      id: `${angle}-${index}`,
+      path: "M -7 -4 L 7 0 L -7 4 Z",
+      transform: `translate(${point.x} ${point.y}) rotate(${angle + 90})`
+    };
+  });
+}
+
+function polarPoint(cx: number, cy: number, radius: number, angle: number) {
+  const radians = (angle * Math.PI) / 180;
+
+  return {
+    x: round(cx + radius * Math.cos(radians)),
+    y: round(cy + radius * Math.sin(radians))
+  };
+}
+
+function round(value: number) {
+  return Math.round(value * 100) / 100;
 }
