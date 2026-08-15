@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import { HeroBrandMark } from "@/components/page/hero-brand-mark";
-import { HeroTransitionBlur } from "@/components/page/hero-transition-blur";
+import { EditorialIndex, HeroCopy, HeroShell } from "@/components/page/hero-system";
 import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionIntro } from "@/components/ui/section";
 import { communityBehaviors, futureDirections, futureLoop, minersDifference, trustProcess, values } from "@/data/site";
@@ -14,28 +14,20 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-offWhite pt-32 sm:pt-36 lg:pt-40">
-        <div className="absolute inset-0 technical-grid opacity-40" aria-hidden="true" />
+      <HeroShell className="bg-offWhite">
         <HeroBrandMark />
-        <HeroTransitionBlur />
-        <div className="container-miners relative z-10 pb-24 lg:pb-32">
-          <div className="max-w-5xl">
-            <p className="mb-7 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">About Miners Group</p>
-            <h1 className="text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-[5.5rem] lg:leading-[0.95]">
-              Potential grows when it has direction, practice, and people around it.
-            </h1>
-            <p className="mt-9 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
-              Miners Group is a technology ecosystem built around learning, collaboration, mentorship, real projects, and meaningful opportunities.
-            </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/join">Join Miners Group</ButtonLink>
-              <ButtonLink href="/programs" variant="secondary">
-                Explore Programs
-              </ButtonLink>
-            </div>
-          </div>
+        <div className="container-miners relative z-10 grid gap-10 pb-28 lg:grid-cols-[1fr_0.36fr] lg:items-end lg:pb-36">
+          <HeroCopy
+            eyebrow="About Miners Group"
+            title="We are building the bridge between learning and real software experience."
+            text="Miners Group is a technology ecosystem built around learning, collaboration, mentorship, real projects, and meaningful opportunities."
+            primary={{ label: "Join Miners Group", href: "/join" }}
+            secondary={{ label: "Explore Programs", href: "/programs", variant: "secondary" }}
+            size="large"
+          />
+          <EditorialIndex label="01" className="pb-4" />
         </div>
-      </section>
+      </HeroShell>
 
       <Section>
         <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">

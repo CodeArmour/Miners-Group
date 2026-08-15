@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ServiceAccordion } from "@/components/home/service-accordion";
-import { PageHero } from "@/components/page/page-hero";
+import { EditorialWords, HeroCopy, HeroShell } from "@/components/page/hero-system";
 import { Section, SectionIntro } from "@/components/ui/section";
 import { ButtonLink } from "@/components/ui/button";
 import { deliveryProcess } from "@/data/site";
@@ -13,14 +13,19 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Services"
-        title="Technology, education, and experience in one ecosystem."
-        text="Miners Group provides software development services while creating practical learning and growth opportunities for developers."
-        cta="Discuss Your Project"
-        href="/for-companies#start-project"
-      />
-      <Section className="bg-white/52">
+      <HeroShell>
+        <div className="container-miners relative z-10 grid gap-12 pb-24 lg:grid-cols-[0.92fr_0.62fr] lg:items-end lg:pb-32">
+          <HeroCopy
+            eyebrow="Services"
+            title="Software built around real problems."
+            text="Miners Group provides software development services while creating practical learning and growth opportunities for developers."
+            primary={{ label: "Start a Project", href: "/for-companies#start-project" }}
+            secondary={{ label: "Explore Services", href: "#services", variant: "secondary" }}
+          />
+          <EditorialWords words={["Build", "Operate", "Enable"]} />
+        </div>
+      </HeroShell>
+      <Section id="services" className="bg-white/52">
         <SectionIntro
           eyebrow="Software Development"
           title="Build, operate, and enable technical capability."

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { BriefcaseBusiness, GraduationCap, Megaphone, UsersRound } from "lucide-react";
 import { JoinApplicationForm } from "@/components/forms/email-forms";
 import { Section, SectionIntro } from "@/components/ui/section";
-import { PageHero } from "@/components/page/page-hero";
+import { EditorialWords, HeroCopy, HeroShell } from "@/components/page/hero-system";
 import { FeatureList } from "@/components/page/feature-list";
 
 export const metadata: Metadata = {
@@ -13,12 +13,20 @@ export const metadata: Metadata = {
 export default function JoinPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Join Miners"
-        title="Find your place inside Miners Group."
-        text="You do not need to be an expert to become part of Miners. You need curiosity, commitment, and a willingness to grow and contribute."
-      />
-      <Section>
+      <HeroShell className="bg-lilacSoft/25">
+        <div className="container-miners relative z-10 grid gap-12 pb-20 lg:grid-cols-[0.95fr_0.62fr] lg:items-end lg:pb-28">
+          <HeroCopy
+            eyebrow="Join Miners"
+            title="There is more than one way to grow here."
+            text="You do not need to be an expert to become part of Miners. You need curiosity, commitment, and a willingness to grow and contribute."
+            primary={{ label: "Apply To Join", href: "#apply" }}
+            secondary={{ label: "Ways To Join", href: "#mentor", variant: "secondary" }}
+            size="standard"
+          />
+          <EditorialWords words={["Learn", "Build", "Contribute", "Mentor"]} />
+        </div>
+      </HeroShell>
+      <Section id="apply">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Apply To Join</p>

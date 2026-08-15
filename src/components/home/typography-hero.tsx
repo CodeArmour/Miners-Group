@@ -58,7 +58,7 @@ export function TypographyHero({ description }: { description: string }) {
         </div>
 
         <div className="mt-16 pt-8 lg:mt-auto">
-          <ol className="grid gap-3 sm:grid-cols-5" aria-label="Miners growth index">
+          <ol className="flex flex-wrap gap-x-5 gap-y-3" aria-label="Miners culture keywords">
             {growthRail.map((item, index) => {
               const selected = active === item;
               return (
@@ -69,21 +69,16 @@ export function TypographyHero({ description }: { description: string }) {
                     onFocus={() => setActive(item)}
                     className={
                       selected
-                        ? "focus-ring group flex w-full items-start justify-between gap-4 rounded-xl border border-indigoElectric/20 bg-lilacSoft/55 px-3 py-3 text-left text-indigoElectric transition"
-                        : "focus-ring group flex w-full items-start justify-between gap-4 rounded-xl border border-transparent px-3 py-3 text-left transition hover:border-indigoElectric/15 hover:bg-white/70 hover:text-indigoElectric"
+                        ? "focus-ring group inline-flex items-baseline gap-2 rounded-full bg-lilacSoft/60 px-4 py-2 text-left text-indigoElectric transition"
+                        : "focus-ring group inline-flex items-baseline gap-2 rounded-full px-4 py-2 text-left text-ink/72 transition hover:bg-white/70 hover:text-indigoElectric"
                     }
                   >
-                    <span>
-                      <span className={selected ? "block text-xs font-bold text-indigoElectric" : "block text-xs font-bold text-muted"}>
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <span className={selected ? "mt-2 block text-sm font-extrabold uppercase tracking-[0.18em] text-indigoElectric" : "mt-2 block text-sm font-extrabold uppercase tracking-[0.18em] text-ink"}>
-                        {item}
-                      </span>
+                    <span className={selected ? "text-[0.7rem] font-bold text-indigoElectric/80" : "text-[0.7rem] font-bold text-muted/80"}>
+                      {String(index + 1).padStart(2, "0")}
                     </span>
-                    {index !== growthRail.length - 1 ? (
-                      <span className={selected ? "mt-8 hidden h-px flex-1 bg-indigoElectric/50 sm:block" : "mt-8 hidden h-px flex-1 bg-ink/12 sm:block"} aria-hidden="true" />
-                    ) : null}
+                    <span className={selected ? "text-xs font-extrabold uppercase tracking-[0.2em] text-indigoElectric" : "text-xs font-extrabold uppercase tracking-[0.2em] text-ink/70"}>
+                      {item}
+                    </span>
                   </button>
                 </li>
               );

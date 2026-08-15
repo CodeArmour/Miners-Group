@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { CoffeeChatForm, ContactForm } from "@/components/forms/email-forms";
-import { PageHero } from "@/components/page/page-hero";
+import { HeroCopy, HeroShell } from "@/components/page/hero-system";
 import { Section } from "@/components/ui/section";
 import { siteConfig } from "@/data/site";
 
@@ -12,11 +12,23 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Contact"
-        title="Let's build, learn, or collaborate."
-        text="Whether you have a project, want to join the community, are looking for mentorship, or want to collaborate with Miners Group, we'd like to hear from you."
-      />
+      <HeroShell className="pt-32" grid={false}>
+        <div className="container-miners relative z-10 pb-16 pt-10 sm:pb-20 sm:pt-16">
+          <HeroCopy
+            eyebrow="Contact Miners"
+            title="Let's talk about what you are building."
+            text="Whether you have a project, collaboration idea, question, or simply want to start a conversation, choose the path that fits."
+            size="compact"
+          />
+          <ul className="mt-8 flex flex-wrap gap-2" aria-label="Contact paths">
+            {["Project", "General Message", "Coffee Chat"].map((path) => (
+              <li key={path} className="rounded-full border border-ink/10 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-ink/70">
+                {path}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </HeroShell>
       <Section>
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>

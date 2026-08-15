@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ExternalLink } from "lucide-react";
-import { HeroBrandMark } from "@/components/page/hero-brand-mark";
-import { HeroTransitionBlur } from "@/components/page/hero-transition-blur";
+import { HeroCopy, HeroShell } from "@/components/page/hero-system";
 import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionIntro } from "@/components/ui/section";
 import { featuredProjects, labsAreas, labsWorkflow } from "@/data/site";
@@ -19,26 +18,28 @@ export default function ProjectsPage() {
 
   return (
     <main className="overflow-hidden pt-28">
-      <section className="relative overflow-hidden bg-offWhite pt-10">
-        <div className="absolute inset-0 technical-grid opacity-45" aria-hidden="true" />
-        <HeroBrandMark />
-        <HeroTransitionBlur />
-        <div className="container-miners relative z-10 pb-24 pt-16 sm:pb-28 sm:pt-24">
-          <div className="max-w-5xl">
-            <p className="mb-7 text-xs font-bold uppercase tracking-[0.24em] text-indigoElectric">Miners Labs</p>
-            <h1 className="text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-[5.5rem] lg:leading-[0.95]">
-              We learn by building things that matter.
-            </h1>
-            <p className="mt-9 max-w-2xl text-lg leading-8 text-muted">
-              Miners Labs is where ideas move through planning, implementation, review, testing, documentation, and delivery, turning technical knowledge into practical engineering experience.
-            </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="#featured-projects">Explore Projects</ButtonLink>
-              <ButtonLink href="#labs-workflow" variant="secondary">How Labs Works</ButtonLink>
+      <HeroShell className="!pt-10" grid={false}>
+        <div className="container-miners relative z-10 grid gap-10 pb-16 pt-14 sm:pb-20 sm:pt-20 lg:grid-cols-[0.9fr_0.42fr] lg:items-end">
+          <HeroCopy
+            eyebrow="Miners Labs / Selected Work"
+            title="We learn by building things that matter."
+            text="Miners Labs is where ideas move through planning, implementation, review, testing, documentation, and delivery, turning technical knowledge into practical engineering experience."
+            primary={{ label: "Explore Projects", href: "#featured-projects" }}
+            secondary={{ label: "How Labs Works", href: "#labs-workflow", variant: "secondary" }}
+            size="compact"
+          />
+          <div className="hidden justify-self-end pb-3 text-right lg:block" aria-hidden="true">
+            <p className="text-xs font-bold uppercase tracking-[0.24em] text-muted">Project Index</p>
+            <div className="mt-5 flex gap-4">
+              {featuredProjects.map((project) => (
+                <span key={project.slug} className="text-7xl font-semibold leading-none tracking-[-0.08em] text-ink/10">
+                  {project.index}
+                </span>
+              ))}
             </div>
           </div>
         </div>
-      </section>
+      </HeroShell>
 
       <Section id="featured-projects" className="pt-4">
         <article className="grid gap-8 lg:grid-cols-[1.45fr_0.75fr] lg:items-center">

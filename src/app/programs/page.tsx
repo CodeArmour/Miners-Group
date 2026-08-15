@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowRight, CircleCheck, Compass, GitPullRequestArrow, GraduationCap } from "lucide-react";
-import { HeroBrandMark } from "@/components/page/hero-brand-mark";
-import { HeroTransitionBlur } from "@/components/page/hero-transition-blur";
+import { EditorialFlow, HeroCopy, HeroShell } from "@/components/page/hero-system";
 import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionIntro } from "@/components/ui/section";
 import {
@@ -24,6 +23,8 @@ const pathIcons = {
   Mentorship: Compass
 };
 
+const programProgression = ["Learn", "Practice", "Build", "Review", "Grow"];
+
 export default function ProgramsPage() {
   const training = programPaths.find((path) => path.title === "Training");
   const internships = programPaths.find((path) => path.title === "Internships");
@@ -31,28 +32,21 @@ export default function ProgramsPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-offWhite pt-32 sm:pt-36 lg:pt-40">
-        <div className="absolute inset-0 technical-grid opacity-45" aria-hidden="true" />
-        <HeroBrandMark />
-        <HeroTransitionBlur />
-        <div className="container-miners relative z-10 pb-24 lg:pb-32">
-          <div className="max-w-5xl">
-            <p className="mb-7 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Miners Programs</p>
-            <h1 className="text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-[5.5rem] lg:leading-[0.95]">
-              Learn with direction. Build with purpose.
-            </h1>
-            <p className="mt-9 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
-              Miners programs are designed to help students and developers strengthen technical skills, practice real engineering workflows, receive guidance, and prepare for meaningful opportunities.
-            </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="#program-paths">Explore Programs</ButtonLink>
-              <ButtonLink href="/join" variant="secondary">
-                Join Miners Group
-              </ButtonLink>
-            </div>
+      <HeroShell className="bg-lilacSoft/30">
+        <div className="container-miners relative z-10 grid gap-10 pb-24 lg:grid-cols-[0.9fr_0.72fr] lg:items-end lg:pb-32">
+          <HeroCopy
+            eyebrow="Miners Programs"
+            title="Learn with direction. Build with purpose."
+            text="Miners programs are designed to help students and developers strengthen technical skills, practice real engineering workflows, receive guidance, and prepare for meaningful opportunities."
+            primary={{ label: "Explore Programs", href: "#program-paths" }}
+            secondary={{ label: "Join Miners Group", href: "/join", variant: "secondary" }}
+          />
+          <div className="lg:pb-3">
+            <p className="mb-5 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Progression Model</p>
+            <EditorialFlow items={programProgression} />
           </div>
         </div>
-      </section>
+      </HeroShell>
 
       <Section id="program-paths" className="bg-white/58">
         <SectionIntro eyebrow="Program Paths" title="Three ways to grow inside Miners." text="Training, internships, and mentorship serve different needs, but they share the same goal: helping developers move from knowledge toward practical experience." />

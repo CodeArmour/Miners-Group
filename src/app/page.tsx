@@ -4,7 +4,6 @@ import {
   MessageCircle,
   Sparkles
 } from "lucide-react";
-import { CoffeeChatForm } from "@/components/forms/email-forms";
 import { JourneyPath } from "@/components/home/journey-path";
 import { ServiceAccordion } from "@/components/home/service-accordion";
 import { TypographyHero } from "@/components/home/typography-hero";
@@ -32,7 +31,7 @@ export default function Home() {
     <main className="overflow-hidden pt-28">
       <TypographyHero description={siteConfig.description} />
 
-      <Section>
+      <Section className="pt-24 lg:pt-28">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <Reveal>
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Why Miners Exists</p>
@@ -42,7 +41,7 @@ export default function Home() {
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="rounded-[2rem] border border-ink/10 bg-white p-5 shadow-soft">
+            <div className="rounded-[2rem] border border-ink/10 bg-white p-5 shadow-sm">
               {studentQuestions.map((question, index) => (
                 <div key={question} className="flex gap-5 border-b border-ink/10 py-5 last:border-b-0">
                   <span className="text-sm font-bold text-indigoElectric">{String(index + 1).padStart(2, "0")}</span>
@@ -118,31 +117,31 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section id="projects" className="bg-ink text-white dark-technical-grid">
+      <Section id="projects" className="bg-white/45">
         <Reveal>
           <div className="max-w-3xl">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-limeSignal">Miners Labs</p>
-            <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">We learn by building.</h2>
-            <p className="mt-5 text-lg leading-8 text-white/66">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Miners Labs</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">We learn by building.</h2>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-muted">
               Miners Labs is where ideas, experiments, and collaborative projects become practical engineering experience.
             </p>
           </div>
         </Reveal>
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 lg:grid-cols-3">
           {labsAreas.map((project) => (
-            <article key={project.name} className="rounded-[2rem] border border-white/10 bg-white/8 p-6">
-              <div className="mb-8 flex items-center justify-between gap-3">
-                <span className="rounded-full bg-limeSignal px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-ink">{project.status}</span>
-                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-white/45">{project.category}</span>
+            <article key={project.name} className="rounded-[1.5rem] border border-ink/10 bg-white p-5">
+              <div className="mb-6 flex items-center justify-between gap-3">
+                <span className="rounded-full bg-lilacSoft px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-indigoElectric">{project.status}</span>
+                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">{project.category}</span>
               </div>
-              <h3 className="text-2xl font-semibold">{project.name}</h3>
-              <p className="mt-4 text-sm leading-6 text-white/66">{project.purpose}</p>
+              <h3 className="text-xl font-semibold text-ink">{project.name}</h3>
+              <p className="mt-3 text-sm leading-6 text-muted">{project.purpose}</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
-                  <span key={tech} className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/70">{tech}</span>
+                  <span key={tech} className="rounded-full border border-ink/10 px-3 py-1 text-xs text-muted">{tech}</span>
                 ))}
               </div>
-              <p className="mt-6 text-sm text-white/50">{project.team}</p>
+              <p className="mt-5 text-sm text-muted/80">{project.team}</p>
             </article>
           ))}
         </div>
@@ -151,11 +150,15 @@ export default function Home() {
       <Section>
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <Reveal>
-            <SectionIntro eyebrow="Mentorship" title="You do not have to figure everything out alone." text="Mentorship helps members understand where they are, where they want to go, and what steps can move them forward." />
-            <ButtonLink href="/programs#mentorship" variant="secondary" className="mt-8">Explore Mentorship</ButtonLink>
+            <div className="max-w-3xl">
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Mentorship</p>
+              <h2 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">You do not have to figure everything out alone.</h2>
+              <p className="mt-5 text-base leading-7 text-muted">Mentorship helps members understand where they are, where they want to go, and what steps can move them forward.</p>
+            </div>
+            <ButtonLink href="/programs#mentorship" variant="secondary" className="mt-7">Explore Mentorship</ButtonLink>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="relative rounded-[2rem] border border-ink/10 bg-white p-6 shadow-sm">
+            <div className="relative rounded-[1.5rem] border border-ink/10 bg-white p-5">
               <div className="grid gap-4 sm:grid-cols-2">
                 {["Which path fits me?", "What should I learn next?", "How can I improve this project?", "Is my portfolio ready?", "How do I prepare for internships?"].map((item) => (
                   <div key={item} className="rounded-2xl bg-offWhite p-4 text-sm font-semibold text-ink">{item}</div>
@@ -173,7 +176,11 @@ export default function Home() {
 
       <Section id="services" className="bg-white/35">
         <Reveal>
-          <SectionIntro eyebrow="Services" title="What Miners Group offers" text="Services are grouped around building software, operating systems reliably, and enabling people and teams through training and collaboration." />
+          <div className="max-w-3xl">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Services</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">What Miners Group offers</h2>
+            <p className="mt-5 text-base leading-7 text-muted">Services are grouped around building software, operating systems reliably, and enabling people and teams through training and collaboration.</p>
+          </div>
         </Reveal>
         <ServiceAccordion />
       </Section>
@@ -181,17 +188,21 @@ export default function Home() {
       <Section>
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <Reveal>
-            <SectionIntro eyebrow="Community" title="You should not have to grow alone." text="The community creates space for coding sessions, workshops, challenges, project collaboration, reviews, knowledge sharing, and mentorship." />
-            <ButtonLink href="/community" variant="secondary" className="mt-8">Join the Community</ButtonLink>
+            <div className="max-w-3xl">
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Community</p>
+              <h2 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">You should not have to grow alone.</h2>
+              <p className="mt-5 text-base leading-7 text-muted">The community creates space for coding sessions, workshops, challenges, project collaboration, reviews, knowledge sharing, and mentorship.</p>
+            </div>
+            <ButtonLink href="/community" variant="secondary" className="mt-7">Join the Community</ButtonLink>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-              {communityActivities.map((activity, index) => {
+              {communityActivities.map((activity) => {
                 const Icon = activity.icon;
                 return (
-                  <div key={activity.title} className="rounded-[1.5rem] border border-ink/10 bg-white p-5 shadow-sm">
+                  <div key={activity.title} className="rounded-[1.25rem] border border-ink/10 bg-white p-4">
                     <Icon className="h-5 w-5 text-indigoElectric" />
-                    <p className="mt-8 text-sm font-semibold text-ink">{activity.title}</p>
+                    <p className="mt-6 text-sm font-semibold text-ink">{activity.title}</p>
                   </div>
                 );
               })}
@@ -203,14 +214,14 @@ export default function Home() {
       <Section className="bg-lilacSoft/35">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <Reveal>
-            <SectionIntro
-              eyebrow="Future Opportunities"
-              title="Internships, cohorts, contributor paths, and mentorship roles will open as programs grow."
-              text="Miners is preparing the spaces where people can learn, contribute, and gain practical experience. Join early to hear when the next path opens."
-            />
+            <div className="max-w-3xl">
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Future Opportunities</p>
+              <h2 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Internships, cohorts, contributor paths, and mentorship roles will open as programs grow.</h2>
+              <p className="mt-5 text-base leading-7 text-muted">Miners is preparing the spaces where people can learn, contribute, and gain practical experience. Join early to hear when the next path opens.</p>
+            </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="rounded-[2rem] border border-ink/10 bg-white p-6 shadow-sm sm:p-8">
+            <div className="rounded-[1.5rem] border border-ink/10 bg-white p-5 sm:p-6">
               <div className="grid gap-3 sm:grid-cols-2">
                 {["Internships", "Contributor Opportunities", "Training Cohorts", "Mentorship Roles"].map((item) => (
                   <div key={item} className="rounded-2xl bg-offWhite p-4 text-sm font-semibold text-ink">
@@ -230,7 +241,7 @@ export default function Home() {
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <Reveal>
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-limeSignal">For Companies</p>
-            <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">Have an idea worth building?</h2>
+            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Have an idea worth building?</h2>
             <p className="mt-5 text-lg leading-8 text-white/66">Work with Miners Group on web, mobile, custom software, AI, cloud, training, or technical collaboration.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/for-companies#start-project" variant="dark">Start a Project</ButtonLink>
@@ -243,7 +254,16 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <CoffeeChatForm />
+            <div className="rounded-[1.5rem] border border-white/10 bg-white/7 p-6">
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-limeSignal">Coffee Chat</p>
+              <h3 className="mt-5 text-2xl font-semibold tracking-tight">Prefer to talk it through?</h3>
+              <p className="mt-4 text-sm leading-6 text-white/64">
+                Start with a lighter conversation before turning the idea into a project brief.
+              </p>
+              <Link href="/contact#coffee-chat" className="focus-ring mt-6 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:bg-limeSignal">
+                Book a Coffee Chat <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
           </Reveal>
         </div>
       </Section>

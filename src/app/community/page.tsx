@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import { MinersLogo } from "@/components/brand/logo";
 import { CommunityLoopWheel } from "@/components/community/community-loop-wheel";
-import { HeroBrandMark } from "@/components/page/hero-brand-mark";
-import { HeroTransitionBlur } from "@/components/page/hero-transition-blur";
+import { HeroCopy, HeroShell, PeopleConstellation } from "@/components/page/hero-system";
 import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionIntro } from "@/components/ui/section";
 import {
@@ -24,28 +23,18 @@ export const metadata: Metadata = {
 export default function CommunityPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-offWhite pt-32 sm:pt-36 lg:pt-40">
-        <div className="absolute inset-0 technical-grid opacity-40" aria-hidden="true" />
-        <HeroBrandMark />
-        <HeroTransitionBlur />
-        <div className="container-miners relative z-10 pb-24 lg:pb-32">
-          <div className="max-w-5xl">
-            <p className="mb-7 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Miners Community</p>
-            <h1 className="text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-[5.5rem] lg:leading-[0.95]">
-              Grow faster when you do not build alone.
-            </h1>
-            <p className="mt-9 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
-              Miners Community brings students, developers, mentors, and builders together to ask questions, exchange knowledge, work on ideas, review work with one another, and grow through shared experience.
-            </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/join">Join Miners Group</ButtonLink>
-              <ButtonLink href="#community-loop" variant="secondary">
-                Explore How We Collaborate
-              </ButtonLink>
-            </div>
-          </div>
+      <HeroShell className="bg-lilacSoft/20">
+        <div className="container-miners relative z-10 grid gap-12 pb-24 lg:grid-cols-[0.95fr_0.7fr] lg:items-center lg:pb-32">
+          <HeroCopy
+            eyebrow="Miners Community"
+            title="Grow faster when you do not build alone."
+            text="Miners Community brings students, developers, mentors, and builders together to ask questions, exchange knowledge, work on ideas, review work with one another, and grow through shared experience."
+            primary={{ label: "Join Miners Group", href: "/join" }}
+            secondary={{ label: "Explore How We Collaborate", href: "#community-loop", variant: "secondary" }}
+          />
+          <PeopleConstellation />
         </div>
-      </section>
+      </HeroShell>
 
       <Section id="community-loop">
         <div className="grid gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-center">

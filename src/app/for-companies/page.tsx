@@ -4,8 +4,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { MinersLogo } from "@/components/brand/logo";
 import { ProjectInquiryForm } from "@/components/forms/email-forms";
-import { HeroBrandMark } from "@/components/page/hero-brand-mark";
-import { HeroTransitionBlur } from "@/components/page/hero-transition-blur";
+import { CollaborationLine, HeroCopy, HeroShell } from "@/components/page/hero-system";
 import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionIntro } from "@/components/ui/section";
 import { featuredProjects } from "@/data/site";
@@ -74,28 +73,18 @@ const whyMiners = [
 export default function ForCompaniesPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-offWhite pt-32 sm:pt-36 lg:pt-40">
-        <div className="absolute inset-0 technical-grid opacity-55" aria-hidden="true" />
-        <HeroBrandMark />
-        <HeroTransitionBlur />
-        <div className="container-miners relative z-10 pb-24 lg:pb-32">
-          <div className="max-w-5xl">
-            <p className="mb-7 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">For Companies</p>
-            <h1 className="text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-[5.5rem] lg:leading-[0.95]">
-              Build software. Support talent. Create opportunities.
-            </h1>
-            <p className="mt-9 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
-              Work with Miners Group to build digital products, solve technical challenges, or create opportunities where software development and talent growth meet.
-            </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="#start-project">Start a Project</ButtonLink>
-              <ButtonLink href="#coffee-chat" variant="secondary">
-                Book a Coffee Chat
-              </ButtonLink>
-            </div>
-          </div>
+      <HeroShell>
+        <div className="container-miners relative z-10 grid gap-12 pb-24 lg:grid-cols-[0.95fr_0.72fr] lg:items-center lg:pb-32">
+          <HeroCopy
+            eyebrow="For Companies"
+            title="Build software. Support talent. Create opportunities."
+            text="Work with Miners Group to build digital products, solve technical challenges, or create opportunities where software development and talent growth meet."
+            primary={{ label: "Start a Project", href: "#start-project" }}
+            secondary={{ label: "Book a Coffee Chat", href: "#coffee-chat", variant: "secondary" }}
+          />
+          <CollaborationLine />
         </div>
-      </section>
+      </HeroShell>
 
       <Section className="bg-white/58">
         <SectionIntro eyebrow="Ways To Collaborate" title="Choose the right starting point." text="Companies can work with Miners through software delivery, talent-focused programs, or broader ecosystem collaboration." />
