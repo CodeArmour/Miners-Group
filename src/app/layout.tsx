@@ -26,12 +26,21 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: "Miners Group",
-    type: "website"
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Miners Group preview image"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
     title: "Miners Group",
-    description: siteConfig.description
+    description: siteConfig.description,
+    images: ["/opengraph-image"]
   }
 };
 
