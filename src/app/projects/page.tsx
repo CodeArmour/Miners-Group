@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ExternalLink } from "lucide-react";
+import { HeroBrandMark } from "@/components/page/hero-brand-mark";
+import { HeroTransitionBlur } from "@/components/page/hero-transition-blur";
 import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionIntro } from "@/components/ui/section";
 import { featuredProjects, labsAreas, labsWorkflow } from "@/data/site";
@@ -17,19 +19,20 @@ export default function ProjectsPage() {
 
   return (
     <main className="overflow-hidden pt-28">
-      <section className="container-miners py-16 sm:py-24">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-          <div>
-            <p className="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-indigoElectric">Miners Labs</p>
-            <h1 className="max-w-4xl text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-7xl">
+      <section className="relative overflow-hidden bg-offWhite pt-10">
+        <div className="absolute inset-0 technical-grid opacity-45" aria-hidden="true" />
+        <HeroBrandMark />
+        <HeroTransitionBlur />
+        <div className="container-miners relative z-10 pb-24 pt-16 sm:pb-28 sm:pt-24">
+          <div className="max-w-5xl">
+            <p className="mb-7 text-xs font-bold uppercase tracking-[0.24em] text-indigoElectric">Miners Labs</p>
+            <h1 className="text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-[5.5rem] lg:leading-[0.95]">
               We learn by building things that matter.
             </h1>
-          </div>
-          <div>
-            <p className="max-w-2xl text-lg leading-8 text-muted">
+            <p className="mt-9 max-w-2xl text-lg leading-8 text-muted">
               Miners Labs is where ideas move through planning, implementation, review, testing, documentation, and delivery, turning technical knowledge into practical engineering experience.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="#featured-projects">Explore Projects</ButtonLink>
               <ButtonLink href="#labs-workflow" variant="secondary">How Labs Works</ButtonLink>
             </div>

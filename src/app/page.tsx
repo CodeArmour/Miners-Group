@@ -5,9 +5,9 @@ import {
   Sparkles
 } from "lucide-react";
 import { CoffeeChatForm } from "@/components/forms/email-forms";
-import { HeroEcosystemMap } from "@/components/home/hero-ecosystem-map";
 import { JourneyPath } from "@/components/home/journey-path";
 import { ServiceAccordion } from "@/components/home/service-accordion";
+import { TypographyHero } from "@/components/home/typography-hero";
 import { Reveal } from "@/components/motion/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionIntro } from "@/components/ui/section";
@@ -27,35 +27,10 @@ const studentQuestions = [
   "How do I know if I am job-ready?"
 ];
 
-const heroJourneyStages = ["Learn", "Practice", "Build", "Mentored", "Experience", "Work"];
-
 export default function Home() {
   return (
     <main className="overflow-hidden pt-28">
-      <section className="container-miners grid min-h-[760px] items-center gap-10 pb-20 pt-12 lg:grid-cols-[0.92fr_1.08fr] lg:pb-24 xl:min-h-[820px]">
-        <Reveal>
-          <p className="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-indigoElectric">Miners Group</p>
-          <h1 className="max-w-[46rem] text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-[4.65rem] lg:leading-[0.96]">
-            Where developers learn, build, and grow through real experience.
-          </h1>
-          <p className="mt-6 max-w-[40rem] text-lg leading-8 text-muted">{siteConfig.description}</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/join" className="bg-indigoElectric hover:bg-ink">Join Miners Group</ButtonLink>
-            <ButtonLink href="#ecosystem" variant="secondary">Explore the Ecosystem</ButtonLink>
-          </div>
-          <ol className="mt-10 flex snap-x gap-2 overflow-x-auto pb-2 text-xs font-semibold text-muted sm:flex-wrap sm:overflow-visible sm:pb-0" aria-label="Miners journey overview">
-            {heroJourneyStages.map((stage, index) => (
-              <li key={stage} className="flex shrink-0 snap-start items-center gap-2 rounded-full border border-ink/10 bg-white/72 px-3 py-1.5">
-                <span className="text-[0.68rem] font-bold text-indigoElectric/80">{String(index + 1).padStart(2, "0")}</span>
-                {stage}
-              </li>
-            ))}
-          </ol>
-        </Reveal>
-        <Reveal delay={0.12}>
-          <HeroEcosystemMap />
-        </Reveal>
-      </section>
+      <TypographyHero description={siteConfig.description} />
 
       <Section>
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">

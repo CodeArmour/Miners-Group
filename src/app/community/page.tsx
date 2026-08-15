@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import { MinersLogo } from "@/components/brand/logo";
 import { CommunityLoopWheel } from "@/components/community/community-loop-wheel";
+import { HeroBrandMark } from "@/components/page/hero-brand-mark";
+import { HeroTransitionBlur } from "@/components/page/hero-transition-blur";
 import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionIntro } from "@/components/ui/section";
 import {
@@ -19,30 +21,29 @@ export const metadata: Metadata = {
     "Join the Miners Group community to learn, share knowledge, collaborate on projects, receive feedback, contribute, and grow alongside students, developers, builders, and mentors."
 };
 
-const participantRoles = ["Student", "Developer", "Contributor", "Mentor", "Builder"];
-
 export default function CommunityPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-offWhite pt-32 sm:pt-36 lg:pt-40">
         <div className="absolute inset-0 technical-grid opacity-40" aria-hidden="true" />
-        <div className="container-miners relative grid gap-12 pb-20 lg:grid-cols-[0.96fr_1.04fr] lg:items-center lg:pb-28">
-          <div className="max-w-3xl">
-            <p className="mb-5 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Miners Community</p>
-            <h1 className="text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-7xl">
+        <HeroBrandMark />
+        <HeroTransitionBlur />
+        <div className="container-miners relative z-10 pb-24 lg:pb-32">
+          <div className="max-w-5xl">
+            <p className="mb-7 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Miners Community</p>
+            <h1 className="text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-[5.5rem] lg:leading-[0.95]">
               Grow faster when you do not build alone.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
+            <p className="mt-9 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
               Miners Community brings students, developers, mentors, and builders together to ask questions, exchange knowledge, work on ideas, review work with one another, and grow through shared experience.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/join">Join Miners Group</ButtonLink>
               <ButtonLink href="#community-loop" variant="secondary">
                 Explore How We Collaborate
               </ButtonLink>
             </div>
           </div>
-          <CommunityNetwork />
         </div>
       </section>
 
@@ -218,45 +219,4 @@ export default function CommunityPage() {
       </Section>
     </>
   );
-}
-
-function CommunityNetwork() {
-  return (
-    <div className="relative mx-auto aspect-[1.08/1] w-full max-w-[560px] rounded-[2rem] border border-ink/10 bg-white p-5 shadow-soft sm:p-7">
-      <div className="absolute inset-0 rounded-[2rem] technical-grid opacity-45" aria-hidden="true" />
-      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 560 520" aria-hidden="true">
-        <path d="M280 118 L280 220" stroke="#5B3DF5" strokeOpacity="0.22" strokeWidth="1.5" />
-        <path d="M118 260 L222 260" stroke="#5B3DF5" strokeOpacity="0.22" strokeWidth="1.5" />
-        <path d="M338 260 L442 260" stroke="#5B3DF5" strokeOpacity="0.22" strokeWidth="1.5" />
-        <path d="M226 326 L158 414" stroke="#5B3DF5" strokeOpacity="0.18" strokeWidth="1.5" />
-        <path d="M334 326 L402 414" stroke="#5B3DF5" strokeOpacity="0.18" strokeWidth="1.5" />
-      </svg>
-      <div className="relative flex h-full items-center justify-center">
-        <div className="grid h-28 w-28 place-items-center rounded-[1.75rem] border border-indigoElectric/20 bg-offWhite shadow-sm">
-          <MinersLogo variant="symbol" className="h-14 w-14" />
-          <span className="sr-only">Miners Community connects students, developers, contributors, mentors, and builders.</span>
-        </div>
-        {participantRoles.map((role, index) => (
-          <div key={role} className={rolePosition(index)}>
-            <div className="flex min-w-32 items-center justify-center gap-2 rounded-full border border-ink/10 bg-white px-4 py-2 text-sm font-semibold text-ink shadow-sm">
-              <span className="h-2 w-2 rounded-full bg-indigoElectric" aria-hidden="true" />
-              {role}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function rolePosition(index: number) {
-  const positions = [
-    "absolute left-1/2 top-5 -translate-x-1/2",
-    "absolute left-4 top-1/2 -translate-y-1/2",
-    "absolute right-4 top-1/2 -translate-y-1/2",
-    "absolute bottom-5 left-8",
-    "absolute bottom-5 right-8"
-  ];
-
-  return positions[index];
 }

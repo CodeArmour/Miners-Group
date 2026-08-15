@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { MinersLogo } from "@/components/brand/logo";
 import { ProjectInquiryForm } from "@/components/forms/email-forms";
+import { HeroBrandMark } from "@/components/page/hero-brand-mark";
+import { HeroTransitionBlur } from "@/components/page/hero-transition-blur";
 import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionIntro } from "@/components/ui/section";
 import { featuredProjects } from "@/data/site";
@@ -74,23 +76,24 @@ export default function ForCompaniesPage() {
     <>
       <section className="relative overflow-hidden bg-offWhite pt-32 sm:pt-36 lg:pt-40">
         <div className="absolute inset-0 technical-grid opacity-55" aria-hidden="true" />
-        <div className="container-miners relative grid gap-12 pb-20 lg:grid-cols-[0.96fr_1.04fr] lg:items-center lg:pb-28">
-          <div className="max-w-3xl">
-            <p className="mb-5 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">For Companies</p>
-            <h1 className="text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-7xl">
+        <HeroBrandMark />
+        <HeroTransitionBlur />
+        <div className="container-miners relative z-10 pb-24 lg:pb-32">
+          <div className="max-w-5xl">
+            <p className="mb-7 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">For Companies</p>
+            <h1 className="text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-[5.5rem] lg:leading-[0.95]">
               Build software. Support talent. Create opportunities.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
+            <p className="mt-9 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
               Work with Miners Group to build digital products, solve technical challenges, or create opportunities where software development and talent growth meet.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="#start-project">Start a Project</ButtonLink>
               <ButtonLink href="#coffee-chat" variant="secondary">
                 Book a Coffee Chat
               </ButtonLink>
             </div>
           </div>
-          <CompanyConnectionVisual />
         </div>
       </section>
 
@@ -244,44 +247,5 @@ export default function ForCompaniesPage() {
         </div>
       </Section>
     </>
-  );
-}
-
-function CompanyConnectionVisual() {
-  const nodes = [
-    { label: "Build", className: "left-1/2 top-4 -translate-x-1/2" },
-    { label: "Company", className: "left-4 top-1/2 -translate-y-1/2" },
-    { label: "Talent", className: "right-4 top-1/2 -translate-y-1/2" },
-    { label: "Partner", className: "bottom-4 left-1/2 -translate-x-1/2" }
-  ];
-
-  return (
-    <div className="relative mx-auto aspect-[1.12/1] w-full max-w-[560px] rounded-[2rem] border border-ink/10 bg-white p-5 shadow-soft sm:p-7">
-      <div className="absolute inset-0 rounded-[2rem] technical-grid opacity-60" aria-hidden="true" />
-      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 560 500" aria-hidden="true">
-        <path d="M280 104 L280 210" stroke="#5B3DF5" strokeOpacity="0.22" strokeWidth="1.5" />
-        <path d="M112 250 L218 250" stroke="#5B3DF5" strokeOpacity="0.22" strokeWidth="1.5" />
-        <path d="M342 250 L448 250" stroke="#5B3DF5" strokeOpacity="0.22" strokeWidth="1.5" />
-        <path d="M280 290 L280 396" stroke="#5B3DF5" strokeOpacity="0.22" strokeWidth="1.5" />
-      </svg>
-      <div className="relative flex h-full items-center justify-center">
-        <div className="grid h-28 w-28 place-items-center rounded-[1.75rem] border border-indigoElectric/20 bg-offWhite shadow-sm">
-          <MinersLogo variant="symbol" className="h-14 w-14" />
-          <span className="sr-only">Miners Group connects company collaboration to build, talent, and partnership paths.</span>
-        </div>
-        {nodes.map((node) => (
-          <div key={node.label} className={`absolute ${node.className}`}>
-            <div className="flex min-w-28 items-center justify-center gap-2 rounded-full border border-ink/10 bg-white px-4 py-2 text-sm font-semibold text-ink shadow-sm">
-              <span className="h-2 w-2 rounded-full bg-indigoElectric" aria-hidden="true" />
-              {node.label}
-            </div>
-          </div>
-        ))}
-        <div className="absolute bottom-4 right-4 hidden items-center gap-2 rounded-full border border-ink/10 bg-offWhite px-3 py-2 text-xs font-semibold text-muted sm:flex">
-          <ArrowDown className="h-3.5 w-3.5 text-indigoElectric" aria-hidden="true" />
-          Conversation to direction
-        </div>
-      </div>
-    </div>
   );
 }

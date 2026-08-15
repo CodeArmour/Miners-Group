@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRight, CircleCheck, Compass, GitPullRequestArrow, GraduationCap } from "lucide-react";
+import { HeroBrandMark } from "@/components/page/hero-brand-mark";
+import { HeroTransitionBlur } from "@/components/page/hero-transition-blur";
 import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionIntro } from "@/components/ui/section";
 import {
@@ -16,8 +18,6 @@ export const metadata: Metadata = {
   description: "Explore Miners Group training, mentorship, learning areas, and future internship pathways designed around practical software engineering experience."
 };
 
-const progression = ["Learn", "Practice", "Build", "Mentored", "Experience", "Opportunity"];
-
 const pathIcons = {
   Training: GraduationCap,
   Internships: GitPullRequestArrow,
@@ -33,23 +33,24 @@ export default function ProgramsPage() {
     <>
       <section className="relative overflow-hidden bg-offWhite pt-32 sm:pt-36 lg:pt-40">
         <div className="absolute inset-0 technical-grid opacity-45" aria-hidden="true" />
-        <div className="container-miners relative grid gap-12 pb-20 lg:grid-cols-[0.96fr_1.04fr] lg:items-center lg:pb-28">
-          <div className="max-w-3xl">
-            <p className="mb-5 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Miners Programs</p>
-            <h1 className="text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-7xl">
+        <HeroBrandMark />
+        <HeroTransitionBlur />
+        <div className="container-miners relative z-10 pb-24 lg:pb-32">
+          <div className="max-w-5xl">
+            <p className="mb-7 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Miners Programs</p>
+            <h1 className="text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-[5.5rem] lg:leading-[0.95]">
               Learn with direction. Build with purpose.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
+            <p className="mt-9 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
               Miners programs are designed to help students and developers strengthen technical skills, practice real engineering workflows, receive guidance, and prepare for meaningful opportunities.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="#program-paths">Explore Programs</ButtonLink>
               <ButtonLink href="/join" variant="secondary">
                 Join Miners Group
               </ButtonLink>
             </div>
           </div>
-          <ProgressionVisual />
         </div>
       </section>
 
@@ -186,24 +187,6 @@ export default function ProgramsPage() {
         </div>
       </Section>
     </>
-  );
-}
-
-function ProgressionVisual() {
-  return (
-    <div className="relative mx-auto w-full max-w-[560px] rounded-[2rem] border border-ink/10 bg-white p-5 shadow-soft sm:p-7">
-      <div className="absolute inset-0 rounded-[2rem] technical-grid opacity-50" aria-hidden="true" />
-      <ol className="relative grid gap-3 sm:grid-cols-2" aria-label="Miners program progression">
-        {progression.map((stage, index) => (
-          <li key={stage} className="relative flex items-center gap-3 rounded-[1.25rem] border border-ink/10 bg-offWhite/90 p-4">
-            <span className={index === 2 ? "flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigoElectric text-xs font-bold text-white" : "flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-xs font-bold text-indigoElectric shadow-sm"}>
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            <span className="text-sm font-semibold text-ink">{stage}</span>
-          </li>
-        ))}
-      </ol>
-    </div>
   );
 }
 

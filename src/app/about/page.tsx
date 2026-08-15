@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
-import { MinersLogo } from "@/components/brand/logo";
+import { HeroBrandMark } from "@/components/page/hero-brand-mark";
+import { HeroTransitionBlur } from "@/components/page/hero-transition-blur";
 import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionIntro } from "@/components/ui/section";
 import { communityBehaviors, futureDirections, futureLoop, minersDifference, trustProcess, values } from "@/data/site";
@@ -15,34 +16,23 @@ export default function AboutPage() {
     <>
       <section className="relative overflow-hidden bg-offWhite pt-32 sm:pt-36 lg:pt-40">
         <div className="absolute inset-0 technical-grid opacity-40" aria-hidden="true" />
-        <div className="container-miners relative grid gap-12 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:pb-28">
-          <div className="max-w-4xl">
-            <p className="mb-5 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">About Miners Group</p>
-            <h1 className="text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-7xl">
+        <HeroBrandMark />
+        <HeroTransitionBlur />
+        <div className="container-miners relative z-10 pb-24 lg:pb-32">
+          <div className="max-w-5xl">
+            <p className="mb-7 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">About Miners Group</p>
+            <h1 className="text-balance text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-[5.5rem] lg:leading-[0.95]">
               Potential grows when it has direction, practice, and people around it.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
+            <p className="mt-9 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
               Miners Group is a technology ecosystem built around learning, collaboration, mentorship, real projects, and meaningful opportunities.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/join">Join Miners Group</ButtonLink>
               <ButtonLink href="/programs" variant="secondary">
                 Explore Programs
               </ButtonLink>
             </div>
-          </div>
-          <div className="relative rounded-[2rem] border border-ink/10 bg-white p-7 shadow-soft">
-            <div className="mb-8 flex items-center justify-between gap-4">
-              <MinersLogo variant="symbol" className="h-12 w-12" />
-              <span className="text-xs font-bold uppercase tracking-[0.18em] text-muted">Learning to experience</span>
-            </div>
-            <p className="text-3xl font-semibold leading-tight tracking-tight text-ink">
-              Learn. Build. Review. Improve. Create opportunity.
-            </p>
-            <div className="mt-8 h-px bg-ink/10" aria-hidden="true" />
-            <p className="mt-6 text-sm leading-6 text-muted">
-              The Miners model connects education, software delivery, mentorship, and community into one practical path.
-            </p>
           </div>
         </div>
       </section>
