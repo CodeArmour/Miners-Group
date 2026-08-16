@@ -125,7 +125,7 @@ export const serviceGroups = [
   {
     title: "Build",
     summary: "Product and software delivery for practical business needs.",
-    items: ["Web Applications", "Mobile Applications", "Custom Software", "AI Solutions"]
+    items: ["Web Applications", "Mobile Applications", "Custom Software"]
   },
   {
     title: "Operate",
@@ -135,7 +135,7 @@ export const serviceGroups = [
   {
     title: "Enable",
     summary: "Technical capability building for teams, students, and organizations.",
-    items: ["Consulting", "Technical Training", "Workshops"]
+    items: ["AI Solutions", "Consulting", "Technical Training", "Workshops"]
   }
 ];
 

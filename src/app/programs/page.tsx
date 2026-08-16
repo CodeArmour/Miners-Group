@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRight, CircleCheck, Compass, GitPullRequestArrow, GraduationCap } from "lucide-react";
-import { EditorialFlow, HeroCopy, HeroShell } from "@/components/page/hero-system";
+import { HeroCopy, HeroShell } from "@/components/page/hero-system";
+import { ProgramsProgressionPath } from "@/components/page/programs-progression-path";
 import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionIntro } from "@/components/ui/section";
 import {
@@ -23,8 +24,6 @@ const pathIcons = {
   Mentorship: Compass
 };
 
-const programProgression = ["Learn", "Practice", "Build", "Review", "Grow"];
-
 export default function ProgramsPage() {
   const training = programPaths.find((path) => path.title === "Training");
   const internships = programPaths.find((path) => path.title === "Internships");
@@ -41,10 +40,7 @@ export default function ProgramsPage() {
             primary={{ label: "Explore Programs", href: "#program-paths" }}
             secondary={{ label: "Join Miners Group", href: "/join", variant: "secondary" }}
           />
-          <div className="lg:pb-3">
-            <p className="mb-5 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">Progression Model</p>
-            <EditorialFlow items={programProgression} />
-          </div>
+          <ProgramsProgressionPath />
         </div>
       </HeroShell>
 

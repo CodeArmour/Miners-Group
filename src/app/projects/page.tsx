@@ -28,16 +28,7 @@ export default function ProjectsPage() {
             secondary={{ label: "How Labs Works", href: "#labs-workflow", variant: "secondary" }}
             size="compact"
           />
-          <div className="hidden justify-self-end pb-3 text-right lg:block" aria-hidden="true">
-            <p className="text-xs font-bold uppercase tracking-[0.24em] text-muted">Project Index</p>
-            <div className="mt-5 flex gap-4">
-              {featuredProjects.map((project) => (
-                <span key={project.slug} className="text-7xl font-semibold leading-none tracking-[-0.08em] text-ink/10">
-                  {project.index}
-                </span>
-              ))}
-            </div>
-          </div>
+          <SelectedWorkIndex projects={featuredProjects} />
         </div>
       </HeroShell>
 
@@ -118,6 +109,41 @@ export default function ProjectsPage() {
         </div>
       </Section>
     </main>
+  );
+}
+
+function SelectedWorkIndex({ projects }: { projects: typeof featuredProjects }) {
+  return (
+    <aside className="w-full max-w-[500px] lg:ml-auto lg:pb-2" aria-label="Selected Miners Labs work">
+      <p className="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-muted">Selected Work</p>
+      <div className="border-y border-ink/10">
+        {projects.map((project) => (
+          <a
+            key={project.slug}
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="focus-ring group grid min-h-24 gap-4 border-b border-ink/10 py-5 last:border-b-0 sm:grid-cols-[3.5rem_1fr_auto] sm:items-center"
+            aria-label={`View ${project.name} live project`}
+          >
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-indigoElectric/74 transition-colors duration-200 group-hover:text-indigoElectric">
+              {project.index}
+            </span>
+            <span>
+              <span className="block text-2xl font-semibold uppercase leading-none tracking-[-0.035em] text-ink transition-transform duration-200 group-hover:translate-x-1 group-hover:text-indigoElectric sm:text-3xl">
+                {project.name}
+              </span>
+              <span className="mt-3 block text-xs font-bold uppercase tracking-[0.18em] text-muted">Live Project</span>
+            </span>
+            <ExternalLink className="h-4 w-4 text-indigoElectric/70 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-indigoElectric" aria-hidden="true" />
+          </a>
+        ))}
+      </div>
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-[0.66rem] font-bold uppercase tracking-[0.22em] text-ink/38">
+        <span>{String(projects.length).padStart(2, "0")} Selected Projects</span>
+        <span>Miners Labs</span>
+      </div>
+    </aside>
   );
 }
 

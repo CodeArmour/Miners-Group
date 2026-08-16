@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ServiceAccordion } from "@/components/home/service-accordion";
-import { EditorialWords, HeroCopy, HeroShell } from "@/components/page/hero-system";
+import { HeroCopy, HeroShell } from "@/components/page/hero-system";
+import { ServicesCapabilityStack } from "@/components/page/services-capability-stack";
 import { Section, SectionIntro } from "@/components/ui/section";
 import { ButtonLink } from "@/components/ui/button";
 import { deliveryProcess } from "@/data/site";
@@ -22,7 +23,7 @@ export default function ServicesPage() {
             primary={{ label: "Start a Project", href: "/for-companies#start-project" }}
             secondary={{ label: "Explore Services", href: "#services", variant: "secondary" }}
           />
-          <EditorialWords words={["Build", "Operate", "Enable"]} />
+          <ServicesCapabilityStack />
         </div>
       </HeroShell>
       <Section id="services" className="bg-white/52">

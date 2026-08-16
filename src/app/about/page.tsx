@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
-import { HeroBrandMark } from "@/components/page/hero-brand-mark";
-import { EditorialIndex, HeroCopy, HeroShell } from "@/components/page/hero-system";
+import { AboutBridgeVisual } from "@/components/page/about-bridge-visual";
+import { HeroCopy, HeroShell } from "@/components/page/hero-system";
 import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionIntro } from "@/components/ui/section";
 import { communityBehaviors, futureDirections, futureLoop, minersDifference, trustProcess, values } from "@/data/site";
@@ -15,8 +15,7 @@ export default function AboutPage() {
   return (
     <>
       <HeroShell className="bg-offWhite">
-        <HeroBrandMark />
-        <div className="container-miners relative z-10 grid gap-10 pb-28 lg:grid-cols-[1fr_0.36fr] lg:items-end lg:pb-36">
+        <div className="container-miners relative z-10 grid gap-10 pb-28 lg:grid-cols-[0.62fr_0.38fr] lg:items-end lg:pb-36">
           <HeroCopy
             eyebrow="About Miners Group"
             title="We are building the bridge between learning and real software experience."
@@ -25,7 +24,7 @@ export default function AboutPage() {
             secondary={{ label: "Explore Programs", href: "/programs", variant: "secondary" }}
             size="large"
           />
-          <EditorialIndex label="01" className="pb-4" />
+          <AboutBridgeVisual />
         </div>
       </HeroShell>
 

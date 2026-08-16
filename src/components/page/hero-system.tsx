@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { MinersLogo } from "@/components/brand/logo";
 import { HeroTransitionBlur } from "@/components/page/hero-transition-blur";
 import { ButtonLink } from "@/components/ui/button";
 import { cx } from "@/lib/utils";
@@ -128,33 +127,6 @@ export function EditorialFlow({
         </li>
       ))}
     </ol>
-  );
-}
-
-export function PeopleConstellation() {
-  const roles = [
-    { label: "Student", className: "left-1/2 top-3 -translate-x-1/2" },
-    { label: "Developer", className: "right-2 top-1/2 -translate-y-1/2" },
-    { label: "Builder", className: "bottom-4 right-10" },
-    { label: "Contributor", className: "bottom-4 left-10" },
-    { label: "Mentor", className: "left-2 top-1/2 -translate-y-1/2" }
-  ];
-
-  return (
-    <div className="relative mx-auto hidden aspect-square w-full max-w-[420px] lg:block" aria-label="Students, developers, contributors, mentors, and builders connected through Miners Community">
-      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 420 420" aria-hidden="true">
-        <circle cx="210" cy="210" r="120" fill="none" stroke="#5B3DF5" strokeOpacity="0.12" strokeWidth="1" />
-        <path d="M210 80V165M340 210H255M294 312L236 250M126 312L184 250M80 210H165" stroke="#5B3DF5" strokeOpacity="0.2" strokeWidth="1.4" />
-      </svg>
-      <div className="absolute left-1/2 top-1/2 grid h-24 w-24 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-indigoElectric/20 bg-white shadow-sm">
-        <MinersLogo variant="symbol" className="h-11 w-11" />
-      </div>
-      {roles.map((role) => (
-        <div key={role.label} className={cx("absolute", role.className)}>
-          <span className="inline-flex rounded-full border border-ink/10 bg-white px-4 py-2 text-sm font-semibold text-ink shadow-sm">{role.label}</span>
-        </div>
-      ))}
-    </div>
   );
 }
 

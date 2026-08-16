@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
-import { MinersLogo } from "@/components/brand/logo";
 import { CommunityLoopWheel } from "@/components/community/community-loop-wheel";
-import { HeroCopy, HeroShell, PeopleConstellation } from "@/components/page/hero-system";
+import { HeroCopy, HeroShell } from "@/components/page/hero-system";
+import { PeopleConstellation } from "@/components/page/people-constellation";
 import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionIntro } from "@/components/ui/section";
 import {
@@ -28,7 +28,7 @@ export default function CommunityPage() {
           <HeroCopy
             eyebrow="Miners Community"
             title="Grow faster when you do not build alone."
-            text="Miners Community brings students, developers, mentors, and builders together to ask questions, exchange knowledge, work on ideas, review work with one another, and grow through shared experience."
+            text="Miners Community brings students, developers, builders, contributors, and mentors together to ask questions, exchange knowledge, work on ideas, review work with one another, and grow through shared experience."
             primary={{ label: "Join Miners Group", href: "/join" }}
             secondary={{ label: "Explore How We Collaborate", href: "#community-loop", variant: "secondary" }}
           />
@@ -37,28 +37,19 @@ export default function CommunityPage() {
       </HeroShell>
 
       <Section id="community-loop">
-        <div className="grid gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-center">
-          <div className="max-w-md">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.4fr_0.6fr] lg:items-center">
+          <div className="max-w-[470px] lg:justify-self-end">
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-indigoElectric">How Miners Grows</p>
             <h2 className="text-4xl font-semibold tracking-tight text-ink sm:text-5xl">How Miners Grows</h2>
             <p className="mt-5 text-lg leading-8 text-muted">
               Community growth is continuous. Questions become shared knowledge, knowledge becomes collaboration, experience becomes mentorship, and growing members help the next person begin.
             </p>
           </div>
-          <div>
+          <div className="w-full lg:justify-self-end">
             <CommunityLoopWheel stages={communityLoop} />
-            <div className="mx-auto mt-6 flex max-w-md items-start gap-4 text-sm leading-6 text-muted">
-              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-ink/10 bg-offWhite text-indigoElectric">
-                <MinersLogo variant="symbol" className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="font-semibold text-ink">Our community loop is continuous.</p>
-                <p>This is how we learn, build, mentor, and grow together.</p>
-              </div>
-            </div>
           </div>
         </div>
-        <div className="mt-10 rounded-[1.75rem] border border-indigoElectric/10 bg-lilacSoft/55 p-6 shadow-sm sm:flex sm:items-center sm:justify-between sm:gap-8 sm:p-7">
+        <div className="mx-auto mt-10 max-w-5xl rounded-[1.25rem] border border-indigoElectric/10 bg-lilacSoft/45 p-5 shadow-sm sm:flex sm:items-center sm:justify-between sm:gap-8 lg:p-6">
           <div className="max-w-2xl">
             <h3 className="text-xl font-semibold tracking-tight text-ink">This cycle is what makes Miners different.</h3>
             <p className="mt-3 text-sm leading-6 text-muted">
